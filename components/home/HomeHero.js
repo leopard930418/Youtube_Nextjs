@@ -79,15 +79,15 @@ function ThumbnailImage({ num, index }) {
 function HeroOverlay() {
   return (
     <div className="absolute left-1/2 top-1/2 z-3 w-[min(88vw,690px)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-black/60 px-8 py-10 text-center backdrop-blur-md md:px-10">
-      <p className="text-2xl font-bold md:text-4xl">
+      <p className="w-full text-center font-extrabold leading-[1.06] tracking-[-0.04em] text-[clamp(2.6rem,6vw,4.2rem)] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)] [text-shadow:0_0_60px_rgba(0,0,0,0.7)] mb-5">
         We help overcome challenges
       </p>
-      <p className="mt-3 text-lg italic text-gray-300 md:text-2xl">
+      <p className="mt-3 px-3 text-2xl italic text-gray-300 md:text-2xl">
         Join the all-in-one ecosystem that helps guide creators for free
       </p>
       <Link
         href="/resources"
-        className="cta-button"
+        className="relative inline-flex items-center justify-center px-10 py-4 rounded-full bg-[#FF2B9D] text-white font-semibold hover:bg-[#FF3AA8] transition-colors mt-6 after:content-[''] after:absolute after:inset-[-3px] after:rounded-[999px] after:shadow-[0_0_28px_rgba(255,31,143,0.55)] after:pointer-events-none"
       >
         Get started
       </Link>
