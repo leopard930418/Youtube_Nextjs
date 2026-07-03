@@ -4,24 +4,26 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ADVICE_TOPICS } from "@/lib/advice-data";
 
-function SearchInput({ value, onChange, resultCount, hasQuery }) {
+function SearchInput() {
+  const [searchQuery, setSearchQuery] = useState('');
   return (
     <div className="px-6 pb-6 pt-8 text-center">
       <h1 className="text-3xl font-bold md:text-4xl">YouTube Advice</h1>
-      <div className="mx-auto mt-6 max-w-xl">
-        <input
-          type="text"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="Search topics like thumbnails, ideas, retention..."
-          className="w-full rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-white placeholder:text-gray-500 outline-none focus:border-accent"
-        />
-        <p className="mt-2 text-sm text-gray-400">
-          {hasQuery
-            ? `${resultCount} topic${resultCount === 1 ? "" : "s"} found`
-            : "Search across all advice topics."}
-        </p>
-      </div>
+      <div className="search-wrap flex justify-center px-0 px-[clamp(0,2vw,20px)] mb-4">
+            <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
+                <input
+                    type="text"
+                    placeholder="Search topics like thumbnails, ideas, retention..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoComplete="off"
+                    className="w-full max-w-[560px] bg-[linear-gradient(135deg,rgba(124,58,237,0.2),rgba(59,130,246,0.12)),rgba(13,9,24,0.96)] border border-[rgba(168,85,247,0.26)] rounded-[16px] px-[18px] py-[14px] text-white font-sans text-[max(16px,clamp(0.88rem,2vw,0.98rem))] font-medium tracking-[0.01em] outline-none shadow-[0_10px_30px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[rgba(168,85,247,0.38)] hover:bg-[linear-gradient(135deg,rgba(124,58,237,0.24),rgba(59,130,246,0.15)),rgba(15,10,27,0.98)] focus:border-[rgba(168,85,247,0.6)] focus:bg-[linear-gradient(135deg,rgba(124,58,237,0.28),rgba(59,130,246,0.18)),rgba(16,10,30,1)] focus:shadow-[0_0_0_4px_rgba(168,85,247,0.16),0_18px_42px_rgba(88,28,135,0.22)] focus:-translate-y-1 placeholder:text-[rgba(228,214,245,0.62)]"
+                />
+                <div className="search-meta min-h-[22px] flex justify-center items-center text-[rgba(228,214,245,0.72)] text-[0.83rem] tracking-[0.01em] text-center">
+                    Search across all advice topics.
+                </div>
+            </div>
+        </div>
     </div>
   );
 }
