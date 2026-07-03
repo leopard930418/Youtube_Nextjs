@@ -58,7 +58,7 @@ export default function SiteFooter() {
             <SocialButton key={social.href} {...social} />
           ))}
         </div>
-        <p className="text-[0.85rem] text-[var(--muted)] mt-[var(--s-5)] pt-5 border-t border-[#2a2a2a]">
+        <p className="w-full text-[0.85rem] text-[var(--muted)] mt-[var(--s-5)] pt-5 border-t border-[#2a2a2a]">
           &copy; 2025 {SITE_NAME}. All rights reserved.
         </p>
       </div>

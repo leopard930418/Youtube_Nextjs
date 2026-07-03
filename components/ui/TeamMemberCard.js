@@ -5,9 +5,9 @@ export default function TeamMemberCard({ member, showQuote = true }) {
     <article
       className="
         group
-        flex flex-col items-center text-center w-[520px]
+        flex flex-col items-center text-center w-1/3
         rounded-2xl py-6 px-4
-        bg-[#141820]/80
+        bg-[#212327]
         border border-white/10
         transition-all duration-300
         hover:-translate-y-1
@@ -40,13 +40,13 @@ export default function TeamMemberCard({ member, showQuote = true }) {
         {member.role}
       </p>
 
-      {showQuote && member.quote && (
+      {/* {showQuote && member.quote && (
         <p className="mt-4 text-gray-200 text-[1rem] leading-[1.5]">
           <span className="text-gray-500">"</span>
           {member.quote}
           <span className="text-gray-500">"</span>
         </p>
-      )}
+      )} */}
     </article>
   );
 }
