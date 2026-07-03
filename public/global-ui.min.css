@@ -1,0 +1,1350 @@
+/* Site-wide finishing layer: colorful-black background, no pink accents, original nav preserved */
+:root {
+    --gg-bg: #000;
+    --gg-surface: rgba(16, 18, 28, 0.78);
+    --gg-surface-soft: rgba(255, 255, 255, 0.055);
+    --gg-border: rgba(255, 255, 255, 0.12);
+    --gg-border-strong: rgba(255, 255, 255, 0.22);
+    --gg-text: #f7f7ff;
+    --gg-muted: #b8bed1;
+    --gg-blue: #4f8cff;
+    --gg-purple: #7c5cff;
+    --gg-cyan: #38d6ff;
+    --gg-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Override older pink theme variables without touching the old navbar layout. */
+    --pink: var(--gg-blue);
+    --pink-soft: rgba(79, 140, 255, 0.12);
+    --border-hover: rgba(79, 140, 255, 0.35);
+    --glow-pink: 0 8px 32px -8px rgba(79, 140, 255, 0.42);
+}
+
+html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background: #000 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--gg-text);
+    background:
+        radial-gradient(
+            ellipse 80% 55% at 16% 8%,
+            rgba(45, 92, 255, 0.15) 0%,
+            transparent 56%
+        ),
+        radial-gradient(
+            ellipse 72% 50% at 88% 86%,
+            rgba(124, 92, 255, 0.13) 0%,
+            transparent 58%
+        ),
+        radial-gradient(
+            ellipse 56% 42% at 50% 45%,
+            rgba(56, 214, 255, 0.06) 0%,
+            transparent 64%
+        ),
+        #000 !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.68),
+        transparent 78%
+    );
+}
+
+body::after {
+    content: none !important;
+}
+
+main {
+    background: transparent !important;
+}
+
+::selection {
+    background: rgba(56, 214, 255, 0.86) !important;
+    color: #001018 !important;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79, 140, 255, 0.7) rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(79, 140, 255, 0.45);
+    border: 2px solid #000;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 214, 255, 0.6);
+}
+
+a,
+button,
+select,
+input,
+textarea,
+.join-team-btn,
+.footer-social-btn,
+.perk-box,
+.team-member,
+.card,
+.tutorial-showcase-card,
+.editing-tutorial-card,
+.credit-platform-item {
+    transition-duration: 220ms;
+    transition-timing-function: var(--gg-ease);
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid rgba(56, 214, 255, 0.85) !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 0 7px rgba(56, 214, 255, 0.14) !important;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+.hero-area,
+.tutorial-hero,
+.coming-soon {
+    position: relative;
+    overflow: hidden;
+    background-color: #000 !important;
+}
+
+.hero-area::before,
+.tutorial-hero::before,
+.coming-soon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(79, 140, 255, 0.12),
+            transparent 22rem
+        ),
+        radial-gradient(
+            circle at 78% 16%,
+            rgba(124, 92, 255, 0.1),
+            transparent 24rem
+        ),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.42));
+    z-index: 0;
+}
+
+.hero-text-overlay,
+.tutorial-hero-overlay,
+.coming-soon .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text-overlay,
+.tutorial-hero-overlay {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.045)
+        ),
+        rgba(0, 0, 0, 0.68) !important;
+    box-shadow:
+        0 22px 70px rgba(0, 0, 0, 0.44),
+        0 0 70px rgba(79, 140, 255, 0.12) !important;
+}
+
+.hero-main-text,
+.tutorial-hero-title,
+.team-title,
+.privacy-section h2,
+.terms-section h2,
+.credits-section h2,
+.coming-soon h1 {
+    background: linear-gradient(
+        92deg,
+        #fff 0%,
+        #dce9ff 42%,
+        #9ed8ff 78%,
+        #fff 100%
+    ) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.join-team-btn,
+a.join-team-btn,
+.tutorial-tab {
+    background: linear-gradient(
+        135deg,
+        var(--gg-blue),
+        var(--gg-purple)
+    ) !important;
+    color: #fff !important;
+    box-shadow: 0 16px 38px rgba(79, 140, 255, 0.24) !important;
+}
+
+.join-team-btn:hover,
+a.join-team-btn:hover,
+.tutorial-tab:hover {
+    box-shadow: 0 22px 52px rgba(56, 214, 255, 0.22) !important;
+}
+
+.logo-container img,
+img.logo {
+    filter: drop-shadow(0 24px 44px rgba(79, 140, 255, 0.14));
+}
+
+.about-us-grid-item,
+.team-member,
+.perk-box,
+.tutorial-showcase-card,
+.editing-tutorial-card,
+.privacy-content,
+.terms-content,
+.credits-content,
+.card,
+.popup-content,
+.coming-soon .container {
+    border-color: var(--gg-border) !important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.032)
+        ),
+        var(--gg-surface) !important;
+    box-shadow:
+        0 18px 58px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.about-us-grid-item:hover,
+.team-member:hover,
+.perk-box:hover,
+.tutorial-showcase-card:hover,
+.editing-tutorial-card:hover,
+.card:hover,
+.credit-platform-item:hover {
+    border-color: var(--gg-border-strong) !important;
+    box-shadow:
+        0 26px 78px rgba(0, 0, 0, 0.42),
+        0 0 54px rgba(79, 140, 255, 0.16) !important;
+}
+
+.hero-sub-text,
+.tutorial-hero-subtitle,
+.tutorial-showcase-text,
+.editing-library-subtitle,
+.footer-description,
+.privacy-content p,
+.terms-content p,
+.credits-intro,
+.team-role,
+.owner-title-label,
+.stats-label,
+.card-desc,
+.editing-tutorial-meta,
+.editing-tag-list,
+.credits-list,
+.privacy-content li,
+.terms-content li {
+    color: var(--gg-muted) !important;
+}
+
+.card-img-style .card-overlay,
+.card-overlay {
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.88)),
+        linear-gradient(
+            135deg,
+            color-mix(in srgb, var(--accent-color, #4f8cff), transparent 64%),
+            transparent 62%
+        ) !important;
+}
+
+.footer-social-btn:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(79, 140, 255, 0.22),
+        rgba(124, 92, 255, 0.2)
+    ) !important;
+}
+
+#nav-overlay {
+    background:
+        radial-gradient(
+            circle at 50% 18%,
+            rgba(79, 140, 255, 0.2),
+            transparent 28rem
+        ),
+        rgba(0, 0, 0, 0.94) !important;
+}
+
+#close-overlay:hover {
+    color: var(--gg-cyan) !important;
+}
+
+/* Use the old TOS navigation style on every page. */
+body header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    padding: 18px 20px 12px !important;
+    background: linear-gradient(
+        180deg,
+        rgba(7, 7, 17, 0.98) 0%,
+        rgba(7, 7, 17, 0.82) 72%,
+        rgba(7, 7, 17, 0) 100%
+    ) !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+}
+
+body header .navbar,
+html body header nav.navbar#mobile-navbar {
+    margin: 0 auto !important;
+    padding: 10px 20px !important;
+    gap: 18px !important;
+    max-width: calc(100vw - 40px) !important;
+    width: max-content !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(22, 20, 34, 0.86) !important;
+    box-shadow:
+        0 16px 44px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    pointer-events: all !important;
+}
+
+body header .header-logo,
+html body header nav.navbar#mobile-navbar .header-logo {
+    margin-right: 12px !important;
+}
+
+body header .nav-links,
+html body header nav.navbar#mobile-navbar .nav-links {
+    display: flex !important;
+    gap: 8px !important;
+}
+
+body header .nav-btn,
+html body header nav.navbar#mobile-navbar .nav-btn {
+    padding: 9px 20px !important;
+    border-radius: 999px !important;
+}
+
+@media (max-width: 700px) {
+    body header {
+        padding: 12px 10px 8px !important;
+    }
+
+    body header .navbar,
+    html body header nav.navbar#mobile-navbar {
+        padding: 8px 10px !important;
+        gap: 6px !important;
+        max-width: calc(100vw - 18px) !important;
+        overflow: hidden !important;
+    }
+
+    body header .header-logo,
+    html body header nav.navbar#mobile-navbar .header-logo {
+        width: 30px !important;
+        height: 30px !important;
+        margin-right: 4px !important;
+    }
+
+    body header .nav-links,
+    html body header nav.navbar#mobile-navbar .nav-links {
+        gap: 4px !important;
+    }
+
+    body header .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn {
+        padding: 6px 10px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+/* Remove the button-like chips on legal pages. */
+.terms-section h2::before,
+.privacy-section h2::before,
+.credits-section h2::before {
+    content: none !important;
+    display: none !important;
+}
+
+body.legal-polish .footer-links a,
+#footer-placeholder footer .footer-links a {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+body.legal-polish .footer-links a:hover,
+#footer-placeholder footer .footer-links a:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Restore tutorial tab colors and styling. */
+.tutorial-tab {
+    --accent-color: #00d4ff;
+    --accent-soft: rgba(0, 212, 255, 0.2);
+    --accent-glow: rgba(0, 212, 255, 0.55);
+    --accent-outline: rgba(183, 241, 255, 0.58);
+    border: 2px solid var(--accent-outline) !important;
+    background:
+        radial-gradient(
+            circle at 28% 18%,
+            var(--accent-soft) 0%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 78% 96%,
+            rgba(0, 212, 255, 0.08) 0%,
+            transparent 36%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(18, 23, 37, 0.96) 0%,
+            rgba(8, 10, 22, 0.98) 100%
+        ) !important;
+    color: #ffffff !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 0 34px rgba(255, 255, 255, 0.03),
+        0 10px 24px rgba(0, 0, 0, 0.36),
+        0 0 18px rgba(0, 0, 0, 0.28),
+        0 0 18px var(--accent-glow) !important;
+}
+
+.tutorial-tab.editing-tab {
+    --accent-color: #ff1f8f;
+    --accent-soft: rgba(255, 31, 143, 0.22);
+    --accent-glow: rgba(255, 31, 143, 0.56);
+    --accent-outline: rgba(255, 184, 225, 0.58);
+}
+
+.tutorial-tab.graphic-tab {
+    --accent-color: #00d4ff;
+    --accent-soft: rgba(0, 212, 255, 0.22);
+    --accent-glow: rgba(0, 212, 255, 0.56);
+    --accent-outline: rgba(177, 241, 255, 0.58);
+}
+
+.tutorial-tab.motion-tab {
+    --accent-color: #ffd600;
+    --accent-soft: rgba(255, 214, 0, 0.22);
+    --accent-glow: rgba(255, 214, 0, 0.5);
+    --accent-outline: rgba(255, 241, 168, 0.58);
+}
+
+.tutorial-tab:hover,
+.tutorial-tab.is-active {
+    border-color: rgba(255, 255, 255, 0.78) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 0 38px rgba(255, 255, 255, 0.045),
+        0 14px 32px rgba(0, 0, 0, 0.44),
+        0 0 26px var(--accent-glow) !important;
+}
+
+.tutorial-tab-icon,
+.tutorial-tab-arrow {
+    color: var(--accent-color) !important;
+}
+
+.tutorial-tab:hover .tutorial-tab-arrow,
+.tutorial-tab.is-active .tutorial-tab-arrow {
+    background: var(--accent-color) !important;
+    color: #06101f !important;
+}
+
+@media (max-width: 640px) {
+    .hero-text-overlay,
+    .tutorial-hero-overlay {
+        width: min(92vw, 680px) !important;
+    }
+}
+
+/* Requested neon navigation + tutorial showcase restoration */
+body header {
+    padding: 12px 20px 10px !important;
+    background: transparent !important;
+    pointer-events: none !important;
+}
+
+body header .navbar,
+html body header nav.navbar#mobile-navbar {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: max-content !important;
+    max-width: calc(100vw - 40px) !important;
+    margin: 0 auto !important;
+    padding: 10px 20px !important;
+    border-radius: 999px !important;
+    border: 2px solid rgba(117, 91, 178, 0.48) !important;
+    background: rgba(15, 13, 26, 0.96) !important;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 12px 28px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 24px rgba(124, 92, 255, 0.14) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    pointer-events: all !important;
+}
+
+body header .header-logo,
+html body header nav.navbar#mobile-navbar .header-logo {
+    width: 58px !important;
+    height: 58px !important;
+    margin-right: 8px !important;
+    border-radius: 16px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 8px rgba(255, 39, 152, 0.9))
+        drop-shadow(0 0 16px rgba(124, 92, 255, 0.7)) !important;
+}
+
+body header .nav-links,
+html body header nav.navbar#mobile-navbar .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+body header .nav-btn,
+html body header nav.navbar#mobile-navbar .nav-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 132px !important;
+    padding: 15px 26px !important;
+    border-radius: 999px !important;
+    border: 0 !important;
+    background: rgba(43, 39, 57, 0.92) !important;
+    color: #e6e2ee !important;
+    font-size: 1.05rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+body header .nav-btn:hover,
+body header .nav-btn.highlight,
+html body header nav.navbar#mobile-navbar .nav-btn:hover,
+html body header nav.navbar#mobile-navbar .nav-btn.highlight {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    background: rgba(55, 50, 72, 0.96) !important;
+    transform: none !important;
+}
+
+.tutorial-showcase {
+    width: min(100% - 80px, 1120px) !important;
+    margin: 0 auto 70px !important;
+    padding: 38px 38px 26px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 24px !important;
+    background: linear-gradient(
+        180deg,
+        rgba(21, 21, 31, 0.92) 0%,
+        rgba(11, 12, 24, 0.98) 100%
+    ) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 20px 60px rgba(0, 0, 0, 0.35) !important;
+    overflow: hidden !important;
+}
+
+.tutorial-showcase-text {
+    max-width: 760px !important;
+    margin: 0 auto 32px !important;
+    color: #d7d8e0 !important;
+    text-align: center !important;
+    font-size: 1.08rem !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+}
+
+.tutorial-showcase-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+}
+
+.tutorial-showcase-card {
+    position: relative !important;
+    min-height: 218px !important;
+    padding: 28px 26px 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(
+        180deg,
+        rgba(21, 23, 35, 0.96),
+        rgba(12, 14, 26, 0.98)
+    ) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 42px rgba(0, 0, 0, 0.28),
+        0 0 36px var(--card-glow, rgba(255, 255, 255, 0.08)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.tutorial-showcase-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    background: radial-gradient(
+        circle at 10% 0%,
+        var(--card-glow, rgba(255, 255, 255, 0.1)),
+        transparent 46%
+    ) !important;
+}
+
+.tutorial-showcase-card.graphic-card {
+    --card-glow: rgba(0, 212, 255, 0.22);
+}
+
+.tutorial-showcase-card.editing-card {
+    --card-glow: rgba(255, 31, 143, 0.22);
+}
+
+.tutorial-showcase-card.motion-card {
+    --card-glow: rgba(255, 214, 0, 0.2);
+}
+
+.tutorial-showcase-card h3 {
+    position: relative !important;
+    margin: 0 0 16px !important;
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+}
+
+.tutorial-showcase-card p {
+    position: relative !important;
+    margin: 0 0 26px !important;
+    color: #bfc1cb !important;
+    font-size: 1.02rem !important;
+    line-height: 1.65 !important;
+    text-align: center !important;
+}
+
+.tutorial-showcase-card .tutorial-tab {
+    margin-top: auto !important;
+}
+
+.tutorial-tab {
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 0 10px 0 14px !important;
+    border-radius: 0 !important;
+    grid-template-columns: 24px 1fr 30px !important;
+    column-gap: 10px !important;
+    font-weight: 800 !important;
+}
+
+.tutorial-tab-label {
+    font-weight: 800 !important;
+}
+
+.tutorial-tab-arrow {
+    width: 28px !important;
+    height: 28px !important;
+    border: 2px solid var(--accent-color) !important;
+    border-radius: 999px !important;
+}
+
+@media (max-width: 760px) {
+    body header .navbar,
+    html body header nav.navbar#mobile-navbar {
+        gap: 8px !important;
+        padding: 8px 10px !important;
+        max-width: calc(100vw - 18px) !important;
+    }
+
+    body header .header-logo,
+    html body header nav.navbar#mobile-navbar .header-logo {
+        width: 38px !important;
+        height: 38px !important;
+        margin-right: 2px !important;
+    }
+
+    body header .nav-links,
+    html body header nav.navbar#mobile-navbar .nav-links {
+        gap: 6px !important;
+    }
+
+    body header .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn {
+        min-width: auto !important;
+        padding: 8px 12px !important;
+        font-size: 0.82rem !important;
+    }
+
+    .tutorial-showcase {
+        width: min(100% - 24px, 1120px) !important;
+        padding: 24px 16px !important;
+    }
+
+    .tutorial-showcase-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Lock the navbar to one identical UI on every page. */
+html body header nav.navbar#mobile-navbar,
+html body.legal-polish header nav.navbar#mobile-navbar {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 28px) !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 8px 16px !important;
+    gap: 14px !important;
+    overflow: visible !important;
+    border-radius: 999px !important;
+    border: 2px solid rgba(117, 91, 178, 0.5) !important;
+    background: rgba(15, 13, 26, 0.92) !important;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 14px 34px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 34px rgba(124, 92, 255, 0.2) !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+html body header nav.navbar#mobile-navbar .header-logo,
+html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+    display: block !important;
+    flex: 0 0 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    max-width: 54px !important;
+    max-height: 54px !important;
+    margin: 0 8px 0 0 !important;
+    padding: 0 !important;
+    border-radius: 16px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 8px rgba(255, 39, 152, 0.9))
+        drop-shadow(0 0 16px rgba(124, 92, 255, 0.7)) !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-links,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-links,
+html body header nav.navbar#mobile-navbar #mobile-nav-links,
+html body.legal-polish header nav.navbar#mobile-navbar #mobile-nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-links li,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-links li {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body header nav.navbar#mobile-navbar .nav-btn:hover,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 132px !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: rgba(43, 39, 57, 0.92) !important;
+    color: #e6e2ee !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+@media (max-width: 700px) {
+    html body header nav.navbar#mobile-navbar,
+    html body.legal-polish header nav.navbar#mobile-navbar {
+        max-width: calc(100vw - 16px) !important;
+        padding: 7px 9px !important;
+        gap: 7px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .header-logo,
+    html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+        flex-basis: 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+        max-width: 36px !important;
+        max-height: 36px !important;
+        margin-right: 2px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-links,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-links,
+    html body header nav.navbar#mobile-navbar #mobile-nav-links,
+    html body.legal-polish header nav.navbar#mobile-navbar #mobile-nav-links {
+        gap: 6px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-btn,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+        flex-basis: auto !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 38px !important;
+        padding: 0 11px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* Requested small visual fixes: white hero text, pink CTA, smaller nav, orange nav hover. */
+.hero-main-text,
+.tutorial-hero-title {
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.hero-sub-text,
+.tutorial-hero-subtitle {
+    color: #f2f4fb !important;
+}
+
+.join-team-btn,
+a.join-team-btn {
+    background: #ff2f9d !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 24px rgba(255, 47, 157, 0.45) !important;
+}
+
+.join-team-btn:hover,
+a.join-team-btn:hover {
+    background: #ff2f9d !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 24px rgba(255, 47, 157, 0.45) !important;
+}
+
+html body header nav.navbar#mobile-navbar,
+html body.legal-polish header nav.navbar#mobile-navbar {
+    padding: 6px 14px !important;
+    gap: 10px !important;
+}
+
+html body header nav.navbar#mobile-navbar .header-logo,
+html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
+    margin-right: 4px !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-links,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-links,
+html body header nav.navbar#mobile-navbar #mobile-nav-links,
+html body.legal-polish header nav.navbar#mobile-navbar #mobile-nav-links {
+    gap: 10px !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight {
+    flex: 0 0 112px !important;
+    width: 112px !important;
+    min-width: 112px !important;
+    max-width: 112px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    font-size: 0.92rem !important;
+    background: rgba(43, 39, 57, 0.92) !important;
+    color: #e6e2ee !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn:hover,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+    background: #ff8a00 !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+@media (max-width: 700px) {
+    html body header nav.navbar#mobile-navbar,
+    html body.legal-polish header nav.navbar#mobile-navbar {
+        padding: 6px 8px !important;
+        gap: 6px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .header-logo,
+    html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+        flex-basis: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-btn,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight {
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 9px !important;
+        font-size: 0.74rem !important;
+    }
+}
+
+/* Follow-up fixes: no CTA grow, black navbar, light-yellow nav hover, stable nav image. */
+.join-team-btn,
+a.join-team-btn,
+.join-team-btn:hover,
+a.join-team-btn:hover,
+.join-team-btn:focus,
+a.join-team-btn:focus,
+.join-team-btn:active,
+a.join-team-btn:active {
+    transform: none !important;
+    scale: 1 !important;
+}
+
+html body header nav.navbar#mobile-navbar,
+html body.legal-polish header nav.navbar#mobile-navbar {
+    background: #000000 !important;
+}
+
+html body header nav.navbar#mobile-navbar .header-logo,
+html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+    display: block !important;
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    image-rendering: auto !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn:hover,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+    background: #d6b600 !important;
+    color: #0b0b0b !important;
+    box-shadow: 0 0 18px rgba(214, 182, 0, 0.45) !important;
+    transform: none !important;
+}
+
+@media (max-width: 700px) {
+    html body header nav.navbar#mobile-navbar .header-logo,
+    html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+        flex-basis: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+    }
+}
+
+/* Mobile repair layer: prevent overflow and keep every page usable on phones. */
+@media (max-width: 700px) {
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    body header {
+        padding: 8px 6px 6px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar,
+    html body.legal-polish header nav.navbar#mobile-navbar {
+        width: calc(100vw - 12px) !important;
+        max-width: calc(100vw - 12px) !important;
+        min-width: 0 !important;
+        padding: 6px 6px !important;
+        gap: 5px !important;
+        overflow: hidden !important;
+        background: #000000 !important;
+        border-width: 1.5px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .header-logo,
+    html body.legal-polish header nav.navbar#mobile-navbar .header-logo {
+        flex: 0 0 30px !important;
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        min-height: 30px !important;
+        max-width: 30px !important;
+        max-height: 30px !important;
+        margin: 0 2px 0 0 !important;
+        border-radius: 9px !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-links,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-links,
+    html body header nav.navbar#mobile-navbar #mobile-nav-links,
+    html body.legal-polish header nav.navbar#mobile-navbar #mobile-nav-links {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        gap: 4px !important;
+        justify-content: space-between !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-links li,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-links li {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+    }
+
+    html body header nav.navbar#mobile-navbar .nav-btn,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 5px !important;
+        font-size: clamp(0.66rem, 3vw, 0.78rem) !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .hero-area,
+    .tutorial-hero {
+        width: 100% !important;
+        min-height: 420px !important;
+        height: auto !important;
+        padding: 52px 12px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hero-text-overlay,
+    .tutorial-hero-overlay {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        padding: 24px 16px !important;
+        border-radius: 18px !important;
+    }
+
+    .hero-main-text,
+    .tutorial-hero-title {
+        font-size: clamp(1.85rem, 9vw, 2.55rem) !important;
+        line-height: 1.12 !important;
+        margin-bottom: 14px !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .hero-sub-text,
+    .tutorial-hero-subtitle {
+        font-size: clamp(0.95rem, 4.4vw, 1.15rem) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 24px !important;
+    }
+
+    .join-team-btn,
+    a.join-team-btn {
+        width: min(220px, 78vw) !important;
+        min-height: 44px !important;
+        padding: 10px 18px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .perks-boxes,
+    .tutorial-showcase-grid,
+    .about-us-grid,
+    .team-section,
+    .cards-grid,
+    .credits-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: calc(100% - 24px) !important;
+        max-width: 420px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        gap: 16px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .perk-box,
+    .tutorial-showcase-card,
+    .editing-tutorial-card,
+    .team-member,
+    .card,
+    .about-us-grid-item,
+    .privacy-content,
+    .terms-content,
+    .credits-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    footer {
+        margin-top: 48px !important;
+        padding: 32px 14px !important;
+    }
+
+    .footer-links,
+    .footer-socials {
+        width: 100% !important;
+        max-width: 360px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+html body header nav.navbar#mobile-navbar .nav-btn:hover,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover,
+html body header nav.navbar#mobile-navbar .nav-btn:focus,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:focus,
+html body header nav.navbar#mobile-navbar .nav-btn:active,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:active,
+html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight {
+    flex: 0 0 112px !important;
+    width: 112px !important;
+    min-width: 112px !important;
+    max-width: 112px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 0 18px !important;
+    transform: none !important;
+    scale: 1 !important;
+    animation: none !important;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight,
+html body header nav.navbar#mobile-navbar .nav-btn.highlight:hover,
+html
+    body.legal-polish
+    header
+    nav.navbar#mobile-navbar
+    .nav-btn.highlight:hover {
+    background: rgba(43, 39, 57, 0.92) !important;
+    color: #e6e2ee !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+}
+
+html body header nav.navbar#mobile-navbar .nav-btn::before,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn::before,
+html body header nav.navbar#mobile-navbar .nav-btn::after,
+html body.legal-polish header nav.navbar#mobile-navbar .nav-btn::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+@media (max-width: 700px) {
+    html body header nav.navbar#mobile-navbar .nav-btn,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn,
+    html body header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body header nav.navbar#mobile-navbar .nav-btn:focus,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:focus,
+    html body header nav.navbar#mobile-navbar .nav-btn:active,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:active,
+    html body header nav.navbar#mobile-navbar .nav-btn.highlight,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn.highlight {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 5px !important;
+    }
+}
+
+/* Desktop nav hover: yellow color only, no growing. */
+@media (hover: hover) and (pointer: fine) {
+    html body header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body header nav.navbar#mobile-navbar .nav-btn.highlight:hover,
+    html
+        body.legal-polish
+        header
+        nav.navbar#mobile-navbar
+        .nav-btn.highlight:hover {
+        background: #d6b600 !important;
+        color: #0b0b0b !important;
+        box-shadow: 0 0 18px rgba(214, 182, 0, 0.35) !important;
+        transform: none !important;
+        scale: 1 !important;
+        width: 112px !important;
+        min-width: 112px !important;
+        max-width: 112px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    html body header nav.navbar#mobile-navbar .nav-btn:hover,
+    html body.legal-polish header nav.navbar#mobile-navbar .nav-btn:hover {
+        background: rgba(43, 39, 57, 0.92) !important;
+        color: #e6e2ee !important;
+        box-shadow: none !important;
+    }
+
+    .join-team-btn:hover,
+    a.join-team-btn:hover {
+        transform: none !important;
+    }
+}

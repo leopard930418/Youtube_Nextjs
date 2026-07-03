@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">YouTube Growth Guide</title>
+  <desc id="desc">High-resolution YouTube Growth Guide banner logo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#341a54"/>
+      <stop offset="0.48" stop-color="#4b216c"/>
+      <stop offset="1" stop-color="#291247"/>
+    </linearGradient>
+    <linearGradient id="guide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ee2dff"/>
+      <stop offset="0.45" stop-color="#ff1ca8"/>
+      <stop offset="1" stop-color="#ff1717"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="45%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="0.28" stop-color="#b06cff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#14091f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#08040e" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="1" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+    <filter id="pinkGlow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="5" flood-color="#08040e" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#ff2ce5" flood-opacity="0.35"/>
+    </filter>
+    <filter id="sparkGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="triangles" width="180" height="160" patternUnits="userSpaceOnUse">
+      <path d="M34 118 88 24l54 94z" fill="none" stroke="#8b56bd" stroke-width="6" opacity="0.24"/>
+      <path d="M95 146 138 72l43 74z" fill="#7d46b5" opacity="0.14"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="400" rx="30" fill="url(#bg)"/>
+  <rect width="1200" height="400" rx="30" fill="url(#triangles)" opacity="0.8"/>
+  <rect width="1200" height="400" rx="30" fill="url(#glow)"/>
+
+  <g opacity="0.42">
+    <rect x="860" y="84" width="168" height="214" rx="8" fill="#7141a3"/>
+    <rect x="892" y="118" width="108" height="130" rx="5" fill="#452068" opacity="0.75"/>
+    <rect x="166" y="264" width="860" height="34" rx="7" fill="#160b28" opacity="0.7"/>
+    <rect x="190" y="230" width="700" height="50" rx="6" fill="#2d1744" opacity="0.7"/>
+    <circle cx="156" cy="296" r="94" fill="#7b38ad" opacity="0.38"/>
+    <path d="M79 95c42 30 45 89 64 126 19 38 64 45 85 77H69z" fill="#10081d" opacity="0.58"/>
+    <path d="M1075 0c-28 58-19 104 9 142 23 31 54 57 75 103V0z" fill="#140a25" opacity="0.58"/>
+  </g>
+
+  <g font-family="Arial Black, Impact, Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle" letter-spacing="8" filter="url(#softShadow)">
+    <text x="600" y="156" font-size="96" fill="#ffffff" stroke="#ffffff" stroke-width="1.5">YOUTUBE</text>
+    <text x="600" y="254" font-size="96" fill="#ffffff" stroke="#ffffff" stroke-width="1.5">GROWTH</text>
+  </g>
+  <g font-family="Arial Black, Impact, Montserrat, Arial, sans-serif" font-weight="900" text-anchor="middle" letter-spacing="9" filter="url(#pinkGlow)">
+    <text x="600" y="352" font-size="96" fill="url(#guide)" stroke="#ff43df" stroke-width="1.2">GUIDE</text>
+  </g>
+
+  <g opacity="0.9">
+    <ellipse cx="602" cy="205" rx="210" ry="28" fill="#ffffff" opacity="0.16"/>
+    <ellipse cx="602" cy="205" rx="122" ry="16" fill="#ffffff" opacity="0.2"/>
+  </g>
+
+  <g filter="url(#sparkGlow)">
+    <path d="M918 58 933 106 982 120 934 135 919 184 904 136 855 121 903 106z" fill="#ffffff"/>
+    <path d="M918 76 927 109 960 119 927 129 918 162 908 129 876 119 908 109z" fill="#fff4ff"/>
+    <path d="M923 51 927 89 966 92 928 99 924 137 917 99 879 95 917 88z" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <rect x="1.5" y="1.5" width="1197" height="397" rx="28.5" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="3"/>
+</svg>

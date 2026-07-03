@@ -3,7 +3,9 @@
 /node_modules
 /build
 /tmp
-
+/.next
+.next
+out
 # Logs
 logs
 *.log
