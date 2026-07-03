@@ -1,30 +1,56 @@
 import Image from "next/image";
 
 export default function ComingSoon({
-  title = "Coming Soon",
-  description = "This section is under development.",
+  title = "We're Extending Soon",
+  description = "The YouTube Growth Guide is growing soon. Stay tuned!",
   image = "/comming.webp",
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#0b0f2a] px-6 py-24 text-center">
+    <section className="relative min-h-[720px] flex items-center justify-center overflow-hidden bg-[#05060f] px-6">
+
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,140,255,0.18),transparent_60%)]" />
+
+      {/* GRID DOT BACKGROUND */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: "radial-gradient(#4f6cff 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+          backgroundImage: "radial-gradient(#2b2f55 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
-      <div className="relative z-10 mx-auto max-w-xl">
-        <h1 className="text-4xl font-bold text-[#7aa2ff]">{title}</h1>
-        <p className="mt-4 text-gray-300">{description}</p>
-        <p className="my-6 text-2xl tracking-[0.2em] text-gray-400">Soon...</p>
-        <Image
-          src={image}
-          alt="Coming Soon"
-          width={300}
-          height={300}
-          className="mx-auto"
-        />
+
+      {/* CARD */}
+      <div className="relative z-10 h-[500px] text-center border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+
+        {/* TITLE */}
+        <h1 className="text-3xl md:text-[56px] font-extrabold leading-tight text-white">
+          We&apos;re Extending{" "}
+          <span className="text-[#7aa2ff]">Soon</span>
+        </h1>
+
+        {/* SUBTITLE */}
+        <div className="flex justify-center">
+          <p className="w-[65%] mt-4 text-gray-300 text-base md:text-lg">
+            {description}
+          </p>
+        </div>
+
+        {/* SPACED SOON TEXT */}
+        <p className="mt-6 text-cyan-400 tracking-[0.35em] text-sm font-medium">
+          SOON...
+        </p>
+
+        {/* IMAGE */}
+        <div className="flex justify-center">
+          <Image
+            src={image}
+            alt="Coming Soon"
+            width={320}
+            height={320}
+            className="object-contain"
+          />
+        </div>
       </div>
     </section>
   );
