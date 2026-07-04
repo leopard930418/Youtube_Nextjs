@@ -68,7 +68,7 @@ const PRIVACY_CONTENT = [
 
 export default function PrivacyPage() {
   return (
-    <PageLayout>
+    <PageLayout showFooter={false}>
       <section className="relative w-full py-20 text-white bg-[#070812]">
 
         {/* TITLE */}

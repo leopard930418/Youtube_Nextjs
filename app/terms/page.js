@@ -58,7 +58,7 @@ const TERMS_CONTENT = [
 
 export default function TermsPage() {
   return (
-    <PageLayout>
+    <PageLayout showFooter={false}>
       <section className="relative w-full py-20 text-white bg-[#070812]">
 
         {/* TITLE */}

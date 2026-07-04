@@ -30,8 +30,8 @@ const creditsData = [
 
 export default function Credits() {
   return (
-    <PageLayout>
-      <section className="relative w-full py-20 text-white bg-[#070812]">
+    <PageLayout showFooter={false}>
+      <section className="relative w-full py-16 text-white bg-[#070812]">
 
         {/* TITLE */}
         <div className="text-center">
@@ -49,8 +49,9 @@ export default function Credits() {
 
         {/* MAIN CARD */}
         <div className="w-full flex justify-center py-10">
-          <div className="relative w-[min(95vw,1100px)] rounded-2xl border border-white/10 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.6)] overflow-hidden" style={{
-            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.032)), var(--gg-surface)',
+          <div className="relative w-[min(95vw,1100px)] rounded-4xl border border-white/10 backdrop-blur-xl overflow-hidden" style={{
+            background: 'rgba(16, 18, 28, 0.78)',
+            boxShadow: '0 18px 58px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
           }}>
 
             {/* TOP ACCENT LINE */}
