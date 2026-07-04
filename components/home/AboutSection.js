@@ -85,9 +85,7 @@ export default function AboutSection() {
               <h2 className="text-3xl font-extrabold text-[#ff2d95] tracking-tight">
                 By the Numbers
               </h2>
-              <p className="mt-4 text-6xl font-extrabold text-white">
-                1,000+
-              </p>
+              <StatsCounter target={1000} />
               <p className="mt-2 text-5xl font-extrabold text-gray-400">
                 Members
               </p>

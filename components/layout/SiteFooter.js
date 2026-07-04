@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { FOOTER_LINKS, SOCIAL_LINKS, SITE_NAME } from "@/lib/site-config";
 
@@ -7,7 +9,7 @@ function FooterLink({ link, showDivider }) {
       {showDivider && <span className="text-white/30">|</span>}
       <Link
         href={link.href}
-        className="transition-colors hover:text-accent"
+        className="text-[0.9rem] font-medium text-[var(--muted)] text-[#9CA3AF] duration-200 hover:text-white"
       >
         {link.label}
       </Link>
@@ -22,6 +24,15 @@ function SocialButton({ href, label, icon, bgColor }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`flex max-w-[160px] items-center justify-center gap-2 rounded-4xl px-4 py-3 text-sm font-medium text-white transition-all hover:scale-105 ${bgColor}`}
+      style={{
+        transition: 'background 0.3s ease, transform 0.3s ease'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = 'linear-gradient(135deg, rgba(79, 140, 255, 0.22), rgba(124, 92, 255, 0.2))';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = '';
+      }}
     >
       <span aria-hidden="true" className="text-lg" dangerouslySetInnerHTML={{ __html: icon }} />
       {label}
