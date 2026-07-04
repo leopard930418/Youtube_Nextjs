@@ -12,10 +12,10 @@ export default function HeroBanner({
       style={{ backgroundImage: `url('${backgroundImage}')` }}
     >
       <div className="absolute inset-0 bg-black/40" />
-      <div className="relative z-10 max-w-2xl rounded-2xl bg-gradient-to-b from-[#2d232e] to-[#18151f] px-8 py-8 text-center shadow-2xl md:px-12 md:py-10">
+      <div className="relative z-10 max-w-2xl rounded-2xl bg-[#000000AD] px-8 py-8 text-center shadow-2xl md:px-12 md:py-10">
         <h1 className="text-3xl font-extrabold md:text-5xl">{title}</h1>
         {subtitle && (
-          <p className="mt-4 text-base text-gray-200 md:text-xl">{subtitle}</p>
+          <p className="mt-4 italic font-semibold text-base text-gray-200 md:text-xl">{subtitle}</p>
         )}
         {cta && (
           <Link

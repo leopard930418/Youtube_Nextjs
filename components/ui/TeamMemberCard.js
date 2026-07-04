@@ -7,8 +7,9 @@ export default function TeamMemberCard({ member, showQuote = true }) {
         group
         flex flex-col items-center text-center w-1/3
         rounded-2xl py-6 px-4
-        bg-[#212327]
-        border border-white/10
+        bg-[#10121CC7]
+        border-[4px] 
+        border-white/10
         transition-all duration-300
         hover:shadow-[0_12px_32px_rgba(0,0,0,6),0_0_24px_rgba(106,142,244,0.4)]
       "

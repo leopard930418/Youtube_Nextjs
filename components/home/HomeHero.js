@@ -120,7 +120,7 @@ function HeroOverlay() {
       </p>
       <Link
         href="/resources"
-        className="relative inline-flex items-center justify-center px-10 py-4 rounded-full bg-[#FF2B9D] text-white font-semibold hover:bg-[#FF3AA8] transition-colors mt-6 after:content-[''] after:absolute after:inset-[-3px] after:rounded-[999px] after:shadow-[0_0_28px_rgba(255,31,143,0.55)] after:pointer-events-none"
+        className="relative inline-flex items-center justify-center px-10 py-4 rounded-full bg-[#FF2B9D] text-white font-semibold hover:bg-[#FF3AA8] transition-colors mt-8 after:content-[''] after:absolute after:inset-[-3px] after:rounded-[999px] after:shadow-[0_0_28px_rgba(255,31,143,0.55)] after:pointer-events-none"
       >
         Get started
       </Link>
