@@ -36,8 +36,7 @@ export default function TutorialsLegacyContent() {
         ],
         id: 'graphic-design-library',
         ariaLabel: 'Graphic design tutorials',
-        tutorials: graphicDesignTutorials,
-        accentColor: '#00d4ff'
+        tutorials: graphicDesignTutorials
       },
     },
     {
@@ -69,8 +68,7 @@ export default function TutorialsLegacyContent() {
         ],
         id: 'editing-library',
         ariaLabel: 'Editing tutorials',
-        tutorials: editingTutorials,
-        accentColor: '#ff1f8f'
+        tutorials: editingTutorials
       },
     },
     {
@@ -103,8 +101,7 @@ export default function TutorialsLegacyContent() {
         ],
         id: 'motion-library',
         ariaLabel: 'Motion design tutorials',
-        tutorials: motionDesignTutorials,
-        accentColor: '#ffd600'
+        tutorials: motionDesignTutorials
       },
     },
   ];
@@ -169,7 +166,7 @@ export default function TutorialsLegacyContent() {
 
       {/* CARD DETAILS SECTION */}
       {activeTab !== "NULL" && (
-        <TutorialLibrary {...cards.find(card => card.id === activeTab)?.libraryProps} />
+        <TutorialLibrary key={activeTab} {...cards.find(card => card.id === activeTab)?.libraryProps} />
       )}
     </div>
   );

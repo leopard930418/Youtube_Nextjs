@@ -1,5 +1,16 @@
 // Graphic Design Tutorials Data
 export const graphicDesignTutorials = [
+   {
+    title: 'How to use & edit with Canva',
+    link: 'https://www.youtube.com/watch?v=OKkWRpoIFuw',
+    thumbnail: 'https://i.ytimg.com/vi_webp/OKkWRpoIFuw/maxresdefault.webp',
+    duration: '29:08',
+    software: 'photoshop',
+    device: 'PC',
+    level: 'Beginners',
+    type: 'video',
+    videoId: 'OKkWRpoIFuw'
+  },
   {
     title: 'How to edit with Photopea',
     link: 'https://www.youtube.com/watch?v=a3aPaTNV5g4',
@@ -32,17 +43,6 @@ export const graphicDesignTutorials = [
     device: 'PC',
     level: 'Playlist',
     type: 'playlist'
-  },
-  {
-    title: 'How to use & edit with Canva',
-    link: 'https://www.youtube.com/watch?v=OKkWRpoIFuw',
-    thumbnail: 'https://i.ytimg.com/vi_webp/OKkWRpoIFuw/maxresdefault.webp',
-    duration: '29:08',
-    software: 'photoshop',
-    device: 'PC',
-    level: 'Beginners',
-    type: 'video',
-    videoId: 'OKkWRpoIFuw'
   },
   {
     title: 'How to edit with Canva',
@@ -163,7 +163,7 @@ export const editingTutorials = [
   {
     title: 'How to master editing on CapCut',
     link: 'https://www.youtube.com/playlist?list=PLn5zXzLdT3OJY7-eAlMgr-eEaXTHGqemV',
-    thumbnail: 'Thumbnails/tutorial-capcut-mobile-playlist.webp',
+    thumbnail: '/Thumbnails/tutorial-capcut-mobile-playlist.webp',
     duration: 'Playlist ↗',
     software: 'capcut',
     device: 'Mobile',
@@ -218,7 +218,7 @@ export const editingTutorials = [
   {
     title: 'How to master editing on CapCut',
     link: 'https://www.youtube.com/watch?v=s8Xr1LSxXbs&list=PLn5zXzLdT3OIjv0WRHJRjvF96jiXQ4YPt&index=1',
-    thumbnail: 'Thumbnails/tutorial-capcut-pc-playlist.webp',
+    thumbnail: '/Thumbnails/tutorial-capcut-pc-playlist.webp',
     duration: 'Playlist ↗',
     software: 'capcut',
     device: 'PC',
@@ -274,7 +274,7 @@ export const editingTutorials = [
   {
     title: 'How to master editing on Premiere Pro',
     link: 'https://www.youtube.com/playlist?list=PLn5zXzLdT3OJ6PyqyMsKEd4ahlIFq0NL4',
-    thumbnail: 'Thumbnails/tutorial-premiere-pro-playlist.webp',
+    thumbnail: '/Thumbnails/tutorial-premiere-pro-playlist.webp',
     duration: 'Playlist ↗',
     software: 'premiere-pro',
     device: 'PC',
@@ -330,7 +330,7 @@ export const editingTutorials = [
   {
     title: 'How to master editing on DaVinci Resolve',
     link: 'https://www.youtube.com/playlist?list=PLn5zXzLdT3OL1gAvll_T6uEqGqfQ8H8mc',
-    thumbnail: 'Thumbnails/tutorial-davinci-resolve-playlist.webp',
+    thumbnail: '/Thumbnails/tutorial-davinci-resolve-playlist.webp',
     duration: 'Playlist ↗',
     software: 'davinci-resolve',
     device: 'PC',
@@ -386,7 +386,7 @@ export const editingTutorials = [
   {
     title: 'How to master editing on Final Cut Pro',
     link: 'https://www.youtube.com/playlist?list=PLgNYtAYhMJcZOKWQMolt14GhpquWBgH6i',
-    thumbnail: 'Thumbnails/tutorial-final-cut-pro-playlist.webp',
+    thumbnail: '/Thumbnails/tutorial-final-cut-pro-playlist.webp',
     duration: 'Playlist ↗',
     software: 'final-cut-pro',
     device: 'PC',

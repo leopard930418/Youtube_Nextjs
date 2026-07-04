@@ -25,6 +25,10 @@
   ::selection {
     @apply bg-blue-500 text-white;
   }
+
+  * {
+    @apply focus:outline-none;
+  }
 }
 
 @layer components {

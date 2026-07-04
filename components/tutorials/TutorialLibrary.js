@@ -10,8 +10,7 @@ export default function TutorialLibrary({
     softwareOptions,
     id,
     ariaLabel,
-    tutorials = [],
-    accentColor = '#ff1f8f'
+    tutorials = []
 }) {
     const [softwareFilter, setSoftwareFilter] = useState('all');
     const [deviceFilter, setDeviceFilter] = useState('all');
@@ -25,34 +24,39 @@ export default function TutorialLibrary({
         setCurrentPage(1);
     };
 
+    // Filter tutorials based on selected filters
+    const filteredTutorials = tutorials.filter((tutorial) => {
+        const matchesSoftware = softwareFilter === 'all' || tutorial.software === softwareFilter;
+        const matchesDevice = deviceFilter === 'all' || 
+            (deviceFilter === 'mobile' && tutorial.device === 'Mobile') ||
+            (deviceFilter === 'desktop' && tutorial.device === 'PC');
+        const matchesLevel = levelFilter === 'all' || 
+            (levelFilter === 'beginner' && tutorial.level.toLowerCase().includes('beginner')) ||
+            (levelFilter === 'intermediate' && tutorial.level.toLowerCase().includes('intermediate')) ||
+            (levelFilter === 'expert' && tutorial.level.toLowerCase().includes('advanced'));
+        return matchesSoftware && matchesDevice && matchesLevel;
+    });
+
     // Calculate pagination
-    const totalPages = Math.ceil(tutorials.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredTutorials.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentTutorials = tutorials.slice(startIndex, endIndex);
+    const currentTutorials = filteredTutorials.slice(startIndex, endIndex);
 
-    const selectClass =
-        `
-    w-full h-[52px]
-    px-[16px]
-
-    rounded-[14px]
-
-    bg-[rgba(10,12,22,0.92)]
-    border border-white/10
-
-    text-white text-[0.95rem] font-semibold
-
-    shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_25px_rgba(0,0,0,0.35)]
-
-    transition-all duration-200 ease-out
-
-    hover:border-white/20
-
-    focus:outline-none
-    focus:border-[#ff2f9b]
-    focus:shadow-[0_0_0_4px_rgba(255,47,155,0.10),inset_0_1px_0_rgba(255,255,255,0.06),0_14px_30px_rgba(0,0,0,0.5)]
-  `;
+    const selectClass =  `
+                            w-full h-[52px]
+                            px-[16px]
+                            rounded-[14px]
+                            bg-[rgba(10,12,22,0.92)]
+                            border border-white/10
+                            text-white text-[0.95rem] font-semibold
+                            shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_25px_rgba(0,0,0,0.35)]
+                            transition-all duration-200 ease-out
+                            hover:border-white/20
+                            focus:outline-none
+                            focus:border-[#ff2f9b]
+                            focus:shadow-[0_0_0_4px_rgba(255,47,155,0.10),inset_0_1px_0_rgba(255,255,255,0.06),0_14px_30px_rgba(0,0,0,0.5)]
+                        `;
 
     return (
         <section
@@ -138,7 +142,7 @@ export default function TutorialLibrary({
                 id="graphic-results-status"
                 aria-live="polite"
             >
-                Showing <strong className="text-[#ff2f9d] font-black">{startIndex + 1}-{Math.min(endIndex, tutorials.length)}</strong> of <strong className="text-[#ff2f9d] font-black">{tutorials.length}</strong> results
+                Showing <strong className="text-[#ff2f9d] font-black">{startIndex + 1}-{Math.min(endIndex, filteredTutorials.length)}</strong> of <strong className="text-[#ff2f9d] font-black">{filteredTutorials.length}</strong> results
             </p>
 
             {/* TUTORIAL CARDS GRID */}
@@ -164,32 +168,7 @@ export default function TutorialLibrary({
                     <button
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
-                        className="text-white font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{
-                            minWidth: '42px',
-                            height: '42px',
-                            padding: '0 13px',
-                            border: '1px solid rgba(155, 123, 255, 0.65)',
-                            borderRadius: '10px',
-                            background: 'rgba(155, 123, 255, 0.16)',
-                            color: '#ffffff',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '0.95rem',
-                            fontWeight: '900',
-                            lineHeight: '1'
-                        }}
-                        onMouseEnter={(e) => {
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.borderColor = 'rgba(255, 31, 143, 0.45)';
-                            e.target.style.background = 'rgba(255, 31, 143, 0.12)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.borderColor = 'rgba(155, 123, 255, 0.65)';
-                            e.target.style.background = 'rgba(155, 123, 255, 0.16)';
-                        }}
+                        className="min-w-[42px] h-[42px] px-[13px] border border-white/10 rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
                     >
                         Previous
                     </button>
@@ -198,39 +177,15 @@ export default function TutorialLibrary({
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className="text-white font-semibold transition-all duration-200"
-                                style={{
-                                    minWidth: '42px',
-                                    height: '42px',
-                                    padding: '0 13px',
-                                    border: currentPage === page ? `1px solid ${accentColor}` : '1px solid rgba(155, 123, 255, 0.65)',
-                                    borderRadius: '10px',
-                                    background: currentPage === page ? accentColor : 'rgba(155, 123, 255, 0.16)',
-                                    color: '#ffffff',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '0.95rem',
-                                    fontWeight: '900',
-                                    lineHeight: '1'
-                                }}
-                                onMouseEnter={(e) => {
-                                    if (currentPage !== page) {
-                                        e.target.style.transform = 'translateY(-2px)';
-                                        e.target.style.borderColor = 'rgba(255, 31, 143, 0.45)';
-                                        e.target.style.background = 'rgba(255, 31, 143, 0.12)';
-                                    }
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.target.style.transform = 'translateY(0)';
-                                    if (currentPage === page) {
-                                        e.target.style.borderColor = accentColor;
-                                        e.target.style.background = accentColor;
-                                    } else {
-                                        e.target.style.borderColor = 'rgba(155, 123, 255, 0.65)';
-                                        e.target.style.background = 'rgba(155, 123, 255, 0.16)';
-                                    }
-                                }}
+                                className={`min-w-[42px] h-[42px] px-[13px] rounded-[10px] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 ${currentPage === page
+                                    ? 'text-white'
+                                    : 'text-[#d7dbea] border border-white/10 bg-[rgba(8,12,24,0.8)] hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]'
+                                    }`}
+                                style={currentPage === page ? {
+                                    border: '1px solid rgba(155, 123, 255, 0.65)',
+                                    backgroundColor: 'rgba(155, 123, 255, 0.16)',
+                                    color: '#ffffff'
+                                } : {}}
                             >
                                 {page}
                             </button>
@@ -239,32 +194,7 @@ export default function TutorialLibrary({
                     <button
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
-                        className="text-white font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{
-                            minWidth: '42px',
-                            height: '42px',
-                            padding: '0 13px',
-                            border: '1px solid rgba(155, 123, 255, 0.65)',
-                            borderRadius: '10px',
-                            background: 'rgba(155, 123, 255, 0.16)',
-                            color: '#ffffff',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '0.95rem',
-                            fontWeight: '900',
-                            lineHeight: '1'
-                        }}
-                        onMouseEnter={(e) => {
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.borderColor = 'rgba(255, 31, 143, 0.45)';
-                            e.target.style.background = 'rgba(255, 31, 143, 0.12)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.borderColor = 'rgba(155, 123, 255, 0.65)';
-                            e.target.style.background = 'rgba(155, 123, 255, 0.16)';
-                        }}
+                        className="min-w-[42px] h-[42px] px-[13px] border border-white/10 rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
                     >
                         Next
                     </button>
