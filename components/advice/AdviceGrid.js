@@ -7,7 +7,7 @@ import { ADVICE_TOPICS } from "@/lib/advice-data";
 function SearchInput({ value, onChange, resultCount, hasQuery }) {
   return (
     <div className="px-6 pb-6 text-center">
-      <h1 className="pb-4 text-3xl text-[2.75rem] font-extrabold tracking-[-0.035em]">YouTube Advice</h1>
+      <h1 className="pb-4 text-3xl text-[2.75rem] font-extrabold tracking-[-0.035em]">Youtube Advice</h1>
       <div className="search-wrap flex justify-center px-0 px-[clamp(0,2vw,20px)] mb-4">
         <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
           <input
@@ -16,7 +16,8 @@ function SearchInput({ value, onChange, resultCount, hasQuery }) {
             value={value}
             onChange={(e) => onChange(e.target.value)}
             autoComplete="off"
-            className="w-full max-w-[560px] bg-[linear-gradient(135deg,rgba(124,58,237,0.2),rgba(59,130,246,0.12)),rgba(13,9,24,0.96)] border border-[rgba(168,85,247,0.26)] rounded-[16px] px-[18px] py-[14px] text-[max(16px,clamp(0.88rem,2vw,0.98rem))] font-medium tracking-[0.01em] outline-none shadow-[0_10px_30px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.05)] transition-[border-color,background,box-shadow,transform] duration-[220ms]"
+            style={{background: "linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(59, 130, 246, 0.12)), rgba(13, 9, 24, 0.96)"}}
+            className="w-full max-w-[560px] border border-[rgba(168,85,247,0.26)] rounded-[16px] px-[18px] py-[14px] text-[max(16px,clamp(0.88rem,2vw,0.98rem))] font-medium tracking-[0.01em] outline-none shadow-[0_10px_30px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.05)] transition-[border-color,background,box-shadow,transform] duration-[220ms]"
           />
           <div className="search-meta min-h-[22px] flex justify-center items-center text-[rgba(228,214,245,0.72)] text-[0.83rem] tracking-[0.01em] text-center">
             {hasQuery
@@ -48,7 +49,7 @@ function TopicCard({ topic }) {
         transition-all duration-300
         ease-[cubic-bezier(0.22,1,0.36,1)]
         hover:border-[var(--accent)]
-        hover:shadow-[0_10px_40px_rgba(0,0,0,0.55),0_0_30px_var(--accent)]
+        hover:shadow-[0_8px_30px_rgba(0,0,0,0.55),0_0_20px_var(--accent)]
         relative before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:w-[3px] before:bg-[var(--accent)] before:z-3 before:rounded-l-[14px] before:rounded-tr-0 before:opacity-90
       "
     >

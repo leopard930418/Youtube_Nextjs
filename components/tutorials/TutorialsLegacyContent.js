@@ -134,7 +134,17 @@ export default function TutorialsLegacyContent() {
           {cards.map((card) => (
             <article
               key={card.id}
-              className={` tutorial-showcase-card relative min-h-54.5 px-5 py-5 pb-3.5 border border-[rgba(255,255,255,0.08)] rounded-[18px] bg-linear-to-b from-[rgba(21,23,35,0.96)] to-[rgba(12,14,26,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_42px_rgba(0,0,0,0.28)] flex flex-col overflow-hidden ${card.cardClass}`}
+              className={` tutorial-showcase-card relative min-h-54.5 px-5 py-5 pb-3.5 border border-[rgba(255,255,255,0.08)] rounded-[18px] bg-linear-to-b from-[rgba(21,23,35,0.96)] to-[rgba(12,14,26,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_42px_rgba(0,0,0,0.28)] flex flex-col overflow-hidden before:absolute before:inset-0 before:pointer-events-none before:bg-[radial-gradient(circle_at_10%_0%,var(--card-glow,rgba(255,255,255,0.1)),transparent_46%)] transition-all duration-300 ${card.cardClass}`}
+              style={{
+                '--card-glow': card.id === 'graphic' ? 'rgba(0,212,255,0.15)' : card.id === 'editing' ? 'rgba(255,31,143,0.15)' : 'rgba(255,214,0,0.15)',
+                boxShadow: card.id === 'graphic' ? '0 26px 78px rgba(0, 0, 0, 0.42), 0 0 54px rgba(0,212,255,0.16)' : card.id === 'editing' ? '0 26px 78px rgba(0, 0, 0, 0.42), 0 0 54px rgba(255,31,143,0.16)' : '0 26px 78px rgba(0, 0, 0, 0.42), 0 0 54px rgba(255,214,0,0.16)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = '';
+              }}
             >
               <h3 className="text-white text-[1.08rem] font-extrabold text-center mb-2.5">
                 {card.title}
@@ -145,11 +155,12 @@ export default function TutorialsLegacyContent() {
               <button
                 type="button"
                 onClick={() => setActiveTab(card.id)}
-                className={`tutorial-tab group mt-auto relative grid grid-cols-[20px_1fr_30px] items-center gap-2.5 h-[52px] min-h-[52px] px-3 border-2 rounded-none transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.78)] hover:saturate-[1.08] hover:brightness-[1.08] bg-[radial-gradient(circle_at_28%_18%,rgba(0,212,255,0.22)_0%,transparent_38%),radial-gradient(circle_at_78%_96%,rgba(0,212,255,0.08)_0%,transparent_36%),linear-gradient(180deg,rgba(18,23,37,0.96)_0%,rgba(8,10,22,0.98)_100%)] ${card.tabClass}`}
+                className={`tutorial-tab group mt-auto relative grid grid-cols-[20px_1fr_30px] items-center gap-2.5 h-[52px] min-h-[52px] px-3 border-2 rounded-none transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.78)] hover:saturate-[1.08] hover:brightness-[1.08] ${card.tabClass}`}
                 aria-selected={activeTab === card.id}
                 aria-expanded={activeTab === card.id}
                 style={{
-                  '--hover-bg': card.id === 'graphic' ? '#00d4ff' : card.id === 'editing' ? '#ff1f8f' : '#ffd600'
+                  '--hover-bg': card.id === 'graphic' ? '#00d4ff' : card.id === 'editing' ? '#ff1f8f' : '#ffd600',
+                  background: `radial-gradient(circle at 28% 18%, ${card.id === 'graphic' ? 'rgba(0,212,255,0.22)' : card.id === 'editing' ? 'rgba(255,31,143,0.22)' : 'rgba(255,214,0,0.22)'} 0%, transparent 38%), radial-gradient(circle at 78% 96%, ${card.id === 'graphic' ? 'rgba(0,212,255,0.08)' : card.id === 'editing' ? 'rgba(255,31,143,0.08)' : 'rgba(255,214,0,0.08)'} 0%, transparent 36%), linear-gradient(180deg, rgba(18,23,37,0.96) 0%, rgba(8,10,22,0.98) 100%)`
                 }}
               >
                 <span className={`tutorial-tab-icon relative z-[1] w-5 h-5 flex-shrink-0 ${card.iconClass}`} style={{ filter: card.iconFilter }}>
