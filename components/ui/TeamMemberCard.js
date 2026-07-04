@@ -10,7 +10,6 @@ export default function TeamMemberCard({ member, showQuote = true }) {
         bg-[#212327]
         border border-white/10
         transition-all duration-300
-        hover:-translate-y-1
         hover:shadow-[0_12px_32px_rgba(0,0,0,6),0_0_24px_rgba(106,142,244,0.4)]
       "
     >
