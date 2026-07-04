@@ -1,5 +1,7 @@
 'use client';
 import { useState } from "react";
+import TutorialLibrary from "./TutorialLibrary";
+import { graphicDesignTutorials, editingTutorials, motionDesignTutorials } from "./tutorialData";
 
 export default function TutorialsLegacyContent() {
   const [activeTab, setActiveTab] = useState("NULL")
@@ -23,6 +25,20 @@ export default function TutorialsLegacyContent() {
           <path d="M15.5 18L20.5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       ),
+      libraryProps: {
+        title: 'Graphic Design Tutorials',
+        kicker: 'Graphic design paths',
+        subtitle: 'Learn Canva, Photopea, and Photoshop on PC and mobile with hand-picked tutorials for every skill level.',
+        softwareOptions: [
+          { value: 'canva', label: 'Canva' },
+          { value: 'photopea', label: 'Photopea' },
+          { value: 'photoshop', label: 'Photoshop' },
+        ],
+        id: 'graphic-design-library',
+        ariaLabel: 'Graphic design tutorials',
+        tutorials: graphicDesignTutorials,
+        accentColor: '#00d4ff'
+      },
     },
     {
       id: 'editing',
@@ -41,6 +57,21 @@ export default function TutorialsLegacyContent() {
           <path d="M3.5 7L19.5 3.5L20.5 7.5L4.5 11L3.5 7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
         </svg>
       ),
+      libraryProps: {
+        title: 'Editing Tutorials',
+        kicker: 'Editing paths',
+        subtitle: 'Learn video editing on PC and mobile with hand-picked tutorials for every skill level.',
+        softwareOptions: [
+          { value: 'capcut', label: 'CapCut' },
+          { value: 'premiere-pro', label: 'Premiere Pro' },
+          { value: 'davinci-resolve', label: 'DaVinci Resolve' },
+          { value: 'final-cut-pro', label: 'Final Cut Pro' },
+        ],
+        id: 'editing-library',
+        ariaLabel: 'Editing tutorials',
+        tutorials: editingTutorials,
+        accentColor: '#ff1f8f'
+      },
     },
     {
       id: 'motion',
@@ -60,11 +91,26 @@ export default function TutorialsLegacyContent() {
           <path d="M2.5 9H6M3.5 12H6M4.5 15H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       ),
+      libraryProps: {
+        title: 'Motion Design Tutorials',
+        kicker: 'Motion design paths',
+        subtitle: 'Learn motion design on PC and mobile with hand-picked tutorials for every skill level.',
+        softwareOptions: [
+          { value: 'after-effects', label: 'After Effects' },
+          { value: 'blender', label: 'Blender' },
+          { value: 'cinema-4d', label: 'Cinema 4D' },
+          { value: 'alight-motion', label: 'Alight Motion' },
+        ],
+        id: 'motion-library',
+        ariaLabel: 'Motion design tutorials',
+        tutorials: motionDesignTutorials,
+        accentColor: '#ffd600'
+      },
     },
   ];
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center">
       {/* HERO SECTION */}
       <section className="tutorial-hero relative w-[min(calc(100%-32px),1120px)] min-h-[330px] mx-auto my-3 mb-11 px-6 py-10 rounded-none overflow-hidden flex items-center justify-center shadow-[0_20px_70px_rgba(0,0,0,0.35)] bg-[linear-gradient(90deg,rgba(10,10,20,0.35),rgba(255,31,143,0.2),rgba(0,212,255,0.12)),url('/background.webp')] bg-center bg-cover bg-no-repeat">
         <div className="tutorial-hero-overlay w-[min(880px,92%)] p-[clamp(34px,5vw,56px)_clamp(24px,6vw,72px)] rounded-[26px] border-[rgba(255,255,255,0.12)] shadow-[0_22px_70px_rgba(0,0,0,0.44),0_0_70px_rgba(79,140,255,0.12)] text-center" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)), rgba(0, 0, 0, 0.68)' }}>
@@ -101,6 +147,7 @@ export default function TutorialsLegacyContent() {
               </p>
               <button
                 type="button"
+                onClick={() => setActiveTab(card.id)}
                 className={`tutorial-tab mt-auto relative grid grid-cols-[20px_1fr_30px] items-center gap-2.5 h-[52px] min-h-[52px] px-3 border-2 rounded-none transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.78)] hover:saturate-[1.08] hover:brightness-[1.08] bg-[radial-gradient(circle_at_28%_18%,rgba(0,212,255,0.22)_0%,transparent_38%),radial-gradient(circle_at_78%_96%,rgba(0,212,255,0.08)_0%,transparent_36%),linear-gradient(180deg,rgba(18,23,37,0.96)_0%,rgba(8,10,22,0.98)_100%)] ${card.tabClass}`}
                 aria-selected={activeTab === card.id}
                 aria-expanded={activeTab === card.id}
@@ -119,6 +166,11 @@ export default function TutorialsLegacyContent() {
           ))}
         </div>
       </section>
-    </>
+
+      {/* CARD DETAILS SECTION */}
+      {activeTab !== "NULL" && (
+        <TutorialLibrary {...cards.find(card => card.id === activeTab)?.libraryProps} />
+      )}
+    </div>
   );
 }
