@@ -18,9 +18,9 @@ export default function AboutSection() {
         />
       </div>
 
-      <section className="mx-auto max-w-6xl px-6 pb-16">
+      <section className="mx-auto max-w-7xl px-6 pb-16">
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-[#141820]/80 p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition hover:border-[#ff2d95]/40">
+          <div className="rounded-2xl border border-white/10 bg-[#141820]/80 px-17 py-4 text-center shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition hover:border-[#ff2d95]/40">
 
             {/* TITLE */}
             <h2 className="text-3xl font-extrabold text-[#ff2d95] tracking-tight">

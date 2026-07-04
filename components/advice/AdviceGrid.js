@@ -4,49 +4,106 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ADVICE_TOPICS } from "@/lib/advice-data";
 
-function SearchInput() {
-  const [searchQuery, setSearchQuery] = useState('');
+function SearchInput({ value, onChange, resultCount, hasQuery }) {
   return (
-    <div className="px-6 pb-6 pt-8 text-center">
-      <h1 className="text-3xl font-bold md:text-4xl">YouTube Advice</h1>
+    <div className="px-6 pb-6 text-center">
+      <h1 className="pb-4 text-3xl text-[2.75rem] font-extrabold tracking-[-0.035em]">YouTube Advice</h1>
       <div className="search-wrap flex justify-center px-0 px-[clamp(0,2vw,20px)] mb-4">
-            <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
-                <input
-                    type="text"
-                    placeholder="Search topics like thumbnails, ideas, retention..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    autoComplete="off"
-                    className="w-full max-w-[560px] bg-[linear-gradient(135deg,rgba(124,58,237,0.2),rgba(59,130,246,0.12)),rgba(13,9,24,0.96)] border border-[rgba(168,85,247,0.26)] rounded-[16px] px-[18px] py-[14px] text-white font-sans text-[max(16px,clamp(0.88rem,2vw,0.98rem))] font-medium tracking-[0.01em] outline-none shadow-[0_10px_30px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[rgba(168,85,247,0.38)] hover:bg-[linear-gradient(135deg,rgba(124,58,237,0.24),rgba(59,130,246,0.15)),rgba(15,10,27,0.98)] focus:border-[rgba(168,85,247,0.6)] focus:bg-[linear-gradient(135deg,rgba(124,58,237,0.28),rgba(59,130,246,0.18)),rgba(16,10,30,1)] focus:shadow-[0_0_0_4px_rgba(168,85,247,0.16),0_18px_42px_rgba(88,28,135,0.22)] focus:-translate-y-1 placeholder:text-[rgba(228,214,245,0.62)]"
-                />
-                <div className="search-meta min-h-[22px] flex justify-center items-center text-[rgba(228,214,245,0.72)] text-[0.83rem] tracking-[0.01em] text-center">
-                    Search across all advice topics.
-                </div>
-            </div>
+        <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
+          <input
+            type="text"
+            placeholder="Search topics like thumbnails, ideas, retention..."
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            autoComplete="off"
+            className="w-full max-w-[560px] bg-[linear-gradient(135deg,rgba(124,58,237,0.2),rgba(59,130,246,0.12)),rgba(13,9,24,0.96)] border border-[rgba(168,85,247,0.26)] rounded-[16px] px-[18px] py-[14px] text-[max(16px,clamp(0.88rem,2vw,0.98rem))] font-medium tracking-[0.01em] outline-none shadow-[0_10px_30px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.05)] transition-[border-color,background,box-shadow,transform] duration-[220ms]"
+          />
+          <div className="search-meta min-h-[22px] flex justify-center items-center text-[rgba(228,214,245,0.72)] text-[0.83rem] tracking-[0.01em] text-center">
+            {hasQuery
+              ? `${resultCount} topic${resultCount === 1 ? "" : "s"} found`
+              : "Search across all advice topics."}
+          </div>
         </div>
+      </div>
     </div>
   );
 }
 
-function TopicCard({ topic, onClick }) {
+function TopicCard({ topic }) {
   return (
     <button
       type="button"
-      onClick={() => onClick(topic)}
-      className="group relative aspect-16/10 overflow-hidden rounded-2xl border border-white/10 text-left shadow-lg transition hover:-translate-y-1 hover:border-accent/50"
-      style={{ "--accent-color": topic.accent }}
+      style={{
+        "--accent": topic.accent,
+      }}
+      className="
+        group relative
+        h-[200px] w-full
+        overflow-hidden
+        text-left
+        rounded-[14px]
+        border border-white/10
+        bg-black/40
+        shadow-[0_4px_20px_rgba(0,0,0,0.4)]
+        transition-all duration-300
+        ease-[cubic-bezier(0.22,1,0.36,1)]
+        hover:border-[var(--accent)]
+        hover:shadow-[0_10px_40px_rgba(0,0,0,0.55),0_0_30px_var(--accent)]
+        relative before:content-[''] before:absolute before:top-0 before:left-0 before:bottom-0 before:w-[3px] before:bg-[var(--accent)] before:z-3 before:rounded-l-[14px] before:rounded-tr-0 before:opacity-90
+      "
     >
+      {/* IMAGE */}
       <Image
         src={topic.image}
         alt={topic.title}
         fill
-        className="object-cover transition duration-300 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, 33vw"
+        className="
+          object-cover
+          transition-transform duration-500
+          group-hover:scale-[1.06]
+          "
+        sizes="(max-width: 600px) 100vw, 33vw"
       />
-      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <h2 className="text-xl font-bold">{topic.title}</h2>
-        <p className="mt-1 text-sm text-gray-300">{topic.description}</p>
+
+      {/* DARK + ACCENT OVERLAY */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.88)), linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 64%), transparent 62%)',
+        }}
+      />
+
+      {/* BOTTOM ACCENT GRADIENT */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[90px] pointer-events-none z-[1]"
+        style={{
+          background: 'linear-gradient(to_top, color-mix(in_srgb, var(--accent) 28%, transparent), transparent)',
+        }}
+      />
+
+      {/* ACCENT GLOW LAYER */}
+      <div
+        className="
+          absolute inset-0
+          opacity-0  
+          transition-opacity duration-300
+          pointer-events-none
+        "
+        style={{
+          background:
+            "radial-gradient(circle at bottom, var(--accent), transparent 60%)",
+        }}
+      />
+
+      {/* CONTENT */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 px-[18px] py-4 pb-[14px]">
+        <h2 className="text-[1.15rem] font-extrabold text-white leading-[1.35] tracking-[-0.01em] mb-1">
+          {topic.title}
+        </h2>
+
+        <p className="text-[0.78rem] text-white/70 leading-[1.6]">
+          {topic.description}
+        </p>
       </div>
     </button>
   );
@@ -124,12 +181,11 @@ export default function AdviceGrid() {
       {filtered.length === 0 ? (
         <EmptyState query={query} />
       ) : (
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-28 pb-16 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((topic) => (
             <TopicCard
               key={topic.id}
               topic={topic}
-              onClick={setActiveTopic}
             />
           ))}
         </div>
