@@ -146,10 +146,10 @@ export default function TutorialsLegacyContent() {
                 e.currentTarget.style.borderColor = '';
               }}
             >
-              <h3 className="text-white text-[1.08rem] font-extrabold text-center mb-2.5">
+              <h3 className="text-white text-[1.28rem] font-extrabold text-center mb-3">
                 {card.title}
               </h3>
-              <p className="text-[#aeb0bc] text-[0.96rem] leading-[1.7] text-center m-0">
+              <p className="text-[#aeb0bc] text-[0.96rem] leading-[1.7] text-center mb-5">
                 {card.description}
               </p>
               <button
@@ -166,7 +166,7 @@ export default function TutorialsLegacyContent() {
                 <span className={`tutorial-tab-icon relative z-[1] w-5 h-5 flex-shrink-0 ${card.iconClass}`} style={{ filter: card.iconFilter }}>
                   {card.icon}
                 </span>
-                <span className="tutorial-tab-label relative z-[1] text-white font-extrabold text-[0.95rem] tracking-tight" style={{ textShadow: '0 2px 0 rgba(0,0,0,0.28), 0 8px 18px rgba(0,0,0,0.7)' }}>
+                <span className="tutorial-tab-label flex justify-left relative z-[1] text-white font-extrabold text-[0.95rem] tracking-tight" style={{ textShadow: '0 2px 0 rgba(0,0,0,0.28), 0 8px 18px rgba(0,0,0,0.7)' }}>
                   {card.tabLabel}
                 </span>
                 <span className={`tutorial-tab-arrow relative z-[1] inline-flex items-center justify-center w-[28px] h-[28px] border-2 rounded-full transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[var(--hover-bg)] group-hover:text-black group-hover:border-[var(--hover-bg)] ${card.arrowClass}`}>
