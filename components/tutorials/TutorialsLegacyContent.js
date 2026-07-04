@@ -87,11 +87,11 @@ export default function TutorialsLegacyContent() {
           </p>
         </div>
 
-        <div className="tutorial-showcase-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+        <div className="tutorial-showcase-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4.5">
           {cards.map((card) => (
             <article
               key={card.id}
-              className={`tutorial-showcase-card relative min-h-[218px] px-5 py-5 pb-[14px] border border-[rgba(255,255,255,0.08)] rounded-[18px] bg-gradient-to-b from-[rgba(21,23,35,0.96)] to-[rgba(12,14,26,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_42px_rgba(0,0,0,0.28)] flex flex-col overflow-hidden ${card.cardClass}`}
+              className={` tutorial-showcase-card relative min-h-54.5 px-5 py-5 pb-3.5 border border-[rgba(255,255,255,0.08)] rounded-[18px] bg-linear-to-b from-[rgba(21,23,35,0.96)] to-[rgba(12,14,26,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_42px_rgba(0,0,0,0.28)] flex flex-col overflow-hidden ${card.cardClass}`}
             >
               <h3 className="text-white text-[1.08rem] font-extrabold text-center mb-2.5">
                 {card.title}
