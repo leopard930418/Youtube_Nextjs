@@ -21,7 +21,7 @@ export default function MotionLibrary() {
                     <h2 className="editing-library-title m-0 text-white text-[clamp(2rem,4vw,3.25rem)] font-extrabold tracking-[-0.05em] text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
                         Motion Design Tutorials
                     </h2>
-                    <p className="editing-library-subtitle max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.92rem,1.8vw,1.05rem)] leading-[1.65] text-center">
+                    <p className="editing-library-subtitle m-0 max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.92rem,1.8vw,1.05rem)] leading-[1.65] text-center">
                         Learn motion design on PC and mobile
                         with hand-picked tutorials for every skill level.
                     </p>
@@ -29,7 +29,7 @@ export default function MotionLibrary() {
             </div>
 
             <div
-                className="editing-filters"
+                className="editing-filters grid grid-cols-[repeat(3,minmax(180px,1fr))] gap-[14px] mb-[26px] p-[18px] border-2 border-white/20 rounded-[22px] bg-[radial-gradient(circle_at_18%_0%,rgba(255,47,157,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.028))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_48px_rgba(0,0,0,0.32)]"
                 aria-label="Motion design tutorial filters"
             >
                 <div className="editing-filter">

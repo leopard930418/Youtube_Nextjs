@@ -15,8 +15,7 @@ export default function TutorialCard({
 }) {
     const cardContent = (
         <article
-            className="
-                        group relative overflow-hidden
+            className=" group relative overflow-hidden
                         rounded-[20px]
                         border border-white/10
                         bg-[#0b0d16]
@@ -64,7 +63,7 @@ export default function TutorialCard({
             </div>
 
             {/* ================= CONTENT ================= */}
-            <div className="p-5 bg-[#0f111a]">
+            <div className="px-5 py-2 bg-[#0f111a]">
 
                 {/* DESCRIPTION */}
                 {description && (

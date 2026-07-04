@@ -1,10 +1,23 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TutorialLibrary from "./TutorialLibrary";
 import { graphicDesignTutorials, editingTutorials, motionDesignTutorials } from "./tutorialData";
 
 export default function TutorialsLegacyContent() {
   const [activeTab, setActiveTab] = useState("NULL")
+
+  useEffect(() => {
+    if (activeTab !== "NULL") {
+      const libraryId = cards.find(card => card.id === activeTab)?.libraryProps.id;
+      if (libraryId) {
+        const element = document.getElementById(libraryId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  }, [activeTab]);
+
   const cards = [
     {
       id: 'graphic',

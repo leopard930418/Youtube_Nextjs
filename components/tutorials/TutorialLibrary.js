@@ -81,7 +81,7 @@ export default function TutorialLibrary({
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[14px] mb-10">
+            <div className="grid grid-cols-[repeat(3,minmax(180px,1fr))] gap-[14px] mb-[26px] p-[18px] border border-white/10 rounded-[22px] bg-[radial-gradient(circle_at_18%_0%,rgba(255,47,157,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.028))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_48px_rgba(0,0,0,0.32)]">
 
                 {/* SOFTWARE */}
                 <div>
