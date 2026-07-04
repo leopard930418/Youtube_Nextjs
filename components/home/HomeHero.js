@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAnimatedCounter } from "@/lib/hooks";
@@ -10,6 +10,8 @@ const THUMB_INDICES = [
 ];
 
 export default function HomeHero() {
+  const [isHovered, setIsHovered] = useState(false);
+
   useEffect(() => {
     const key = "yggHomeThumbIntroSeen";
     const grid = document.querySelector(".thumbnails-multiline");
@@ -32,11 +34,11 @@ export default function HomeHero() {
 
       <div className="thumbnails-multiline absolute inset-0 grid grid-cols-2 md:grid-cols-4 md:grid-rows-4">
         {THUMB_INDICES.map((num, i) => (
-          <ThumbnailImage key={`${num}-${i}`} num={num} index={i} />
+          <ThumbnailImage key={`${num}-${i}`} num={num} index={i} onHover={setIsHovered} />
         ))}
       </div>
 
-      <div className="absolute inset-0 z-2 bg-black/0" />
+      <div className={`absolute inset-0 z-2 transition-opacity duration-300 pointer-events-none ${isHovered ? 'bg-black/30' : 'bg-black/0'}`} />
 
       <HeroOverlay />
     </section>
@@ -61,17 +63,48 @@ function GradientOrb({ className, color, size }) {
   );
 }
 
-function ThumbnailImage({ num, index }) {
+function ThumbnailImage({ num, index, onHover }) {
   return (
-    <div className="hero-thumb-picture relative overflow-hidden">
-      <Image
-        src={`/Thumbnails/thumb${num}.webp`}
-        alt={`Thumbnail ${index + 1}`}
-        fill
-        className="object-cover transition-transform duration-300 hover:scale-105"
-        sizes="(max-width: 600px) 50vw, 25vw"
-        priority={index === 0}
-      />
+    <div 
+      className="hero-thumb-picture relative overflow-hidden transition-shadow duration-[220ms] ease-[cubic-bezier(0.4,1.7,0.7,1)] hover:shadow-[0_0_50px_rgba(255,43,157,0.5)]"
+      style={{
+        borderRadius: '0',
+        transition: 'border-radius 0.22s cubic-bezier(0.4, 1.7, 0.7, 1)'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderRadius = '14px';
+        onHover(true);
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderRadius = '0';
+        onHover(false);
+      }}
+    >
+      <div 
+        className="absolute inset-0 overflow-hidden"
+        style={{
+          transition: 'transform 0.22s cubic-bezier(0.4, 1.7, 0.7, 1), filter 0.22s cubic-bezier(0.4, 1.7, 0.7, 1)'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.045)';
+          e.currentTarget.style.filter = 'brightness(1.15)';
+          e.currentTarget.style.willChange = 'transform';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+          e.currentTarget.style.filter = '';
+          e.currentTarget.style.willChange = '';
+        }}
+      >
+        <Image
+          src={`/Thumbnails/thumb${num}.webp`}
+          alt={`Thumbnail ${index + 1}`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 600px) 50vw, 25vw"
+          priority={index === 0}
+        />
+      </div>
     </div>
   );
 }

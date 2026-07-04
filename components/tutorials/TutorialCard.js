@@ -37,7 +37,7 @@ export default function TutorialCard({
                         src={thumbnail}
                         alt={title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-all duration-[220ms] ease-[cubic-bezier(0.4,1.7,0.7,1)] group-hover:brightness-110"
                     />
                 ) : (
                     <div className="w-full h-full bg-gradient-to-br from-[#1a1d2e] to-[#0f111a] flex items-center justify-center">
