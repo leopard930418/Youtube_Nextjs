@@ -12,6 +12,7 @@ export default function TutorialCard({
     device,
     note,
     link,
+    onClick,
 }) {
     const cardContent = (
         <article
@@ -26,6 +27,7 @@ export default function TutorialCard({
                         cursor-pointer
                         outline-none
                     "
+            onClick={onClick}
         >
 
             {/* ================= THUMBNAIL ================= */}
@@ -103,7 +105,7 @@ export default function TutorialCard({
                             style={{
                                 color: device === 'Mobile' ? '#46ff8f' : '#ffd166',
                                 borderColor: device === 'Mobile' ? 'rgba(70, 255, 143, 0.45)' : 'rgba(255, 209, 102, 0.45)',
-                                background: device === 'Mobile' 
+                                background: device === 'Mobile'
                                     ? 'radial-gradient(circle at 24% 16%, rgba(70, 255, 143, 0.18), transparent 46%), linear-gradient(180deg, rgba(18, 23, 37, 0.96) 0%, rgba(8, 10, 22, 0.98) 100%)'
                                     : 'radial-gradient(circle at 24% 16%, rgba(255, 209, 102, 0.18), transparent 46%), linear-gradient(180deg, rgba(18, 23, 37, 0.96) 0%, rgba(8, 10, 22, 0.98) 100%)',
                                 boxShadow: device === 'Mobile'
@@ -159,12 +161,5 @@ export default function TutorialCard({
         </article>
     );
 
-    return link ? (
-        <a
-            href={link}
-            className="block outline-none"
-        >
-            {cardContent}
-        </a>
-    ) : cardContent;
+    return cardContent;
 }

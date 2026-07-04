@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import TutorialCard from './TutorialCard';
+import TutorialCardModal from './TutorialCardModal';
 
 export default function TutorialLibrary({
     title,
@@ -16,12 +17,24 @@ export default function TutorialLibrary({
     const [deviceFilter, setDeviceFilter] = useState('all');
     const [levelFilter, setLevelFilter] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedVideoUrl, setSelectedVideoUrl] = useState(null);
     const itemsPerPage = 9;
 
     // Reset to page 1 when filters change
     const handleFilterChange = (setter) => (value) => {
         setter(value);
         setCurrentPage(1);
+    };
+
+    const handleCardClick = (tutorial) => {
+        setSelectedVideoUrl(tutorial.link);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedVideoUrl(null);
     };
 
     // Filter tutorials based on selected filters
@@ -59,14 +72,15 @@ export default function TutorialLibrary({
                         `;
 
     return (
-        <section
-            className="editing-library w-[min(calc(100%-32px),1480px)] mx-[-32px_auto_110px] px-[28px] pt-[58px] px-[28px] pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
-            style={{
-                background: 'radial-gradient(circle at 18% 0%, rgba(255, 31, 143, 0.12), transparent 34%), radial-gradient(circle at 88% 8%, rgba(0, 212, 255, 0.08), transparent 34%), linear-gradient(180deg, rgba(14, 17, 29, 0.98) 0%, rgba(8, 10, 20, 0.98) 100%)'
-            }}
-            id={id}
-            aria-label={ariaLabel}
-        >
+        <>
+            <section
+                className="editing-library w-[min(calc(100%-32px),1480px)] mx-[-32px_auto_110px] px-[28px] pt-[58px] px-[28px] pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
+                style={{
+                    background: 'radial-gradient(circle at 18% 0%, rgba(255, 31, 143, 0.12), transparent 34%), radial-gradient(circle at 88% 8%, rgba(0, 212, 255, 0.08), transparent 34%), linear-gradient(180deg, rgba(14, 17, 29, 0.98) 0%, rgba(8, 10, 20, 0.98) 100%)'
+                }}
+                id={id}
+                aria-label={ariaLabel}
+            >
             <div className="editing-library-header flex flex-col items-center mb-6 text-center">
                 <div>
                     <div className="editing-library-kicker text-[#ff1f8f] text-[0.78rem] font-extrabold tracking-[0.16em] text-center uppercase">
@@ -158,6 +172,7 @@ export default function TutorialLibrary({
                         level={tutorial.level}
                         device={tutorial.device}
                         note={tutorial.note}
+                        onClick={() => handleCardClick(tutorial)}
                     />
                 ))}
             </div>
@@ -201,5 +216,12 @@ export default function TutorialLibrary({
                 </div>
             )}
         </section>
+
+        <TutorialCardModal
+            isOpen={isModalOpen}
+            videoUrl={selectedVideoUrl}
+            onClose={handleCloseModal}
+        />
+        </>
     );
 }
