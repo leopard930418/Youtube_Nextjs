@@ -163,8 +163,6 @@ export default function TutorialCard({
     return link ? (
         <a
             href={link}
-            target="_blank"
-            rel="noopener noreferrer"
             className="block outline-none"
         >
             {cardContent}

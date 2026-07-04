@@ -111,7 +111,7 @@ export default function TutorialsLegacyContent() {
       {/* HERO SECTION */}
       <section className="tutorial-hero relative w-[min(calc(100%-32px),1120px)] min-h-[330px] mx-auto my-3 mb-11 px-6 py-10 rounded-none overflow-hidden flex items-center justify-center shadow-[0_20px_70px_rgba(0,0,0,0.35)] bg-[linear-gradient(90deg,rgba(10,10,20,0.35),rgba(255,31,143,0.2),rgba(0,212,255,0.12)),url('/background.webp')] bg-center bg-cover bg-no-repeat">
         <div className="tutorial-hero-overlay w-[min(880px,92%)] p-[clamp(34px,5vw,56px)_clamp(24px,6vw,72px)] rounded-[26px] border-[rgba(255,255,255,0.12)] shadow-[0_22px_70px_rgba(0,0,0,0.44),0_0_70px_rgba(79,140,255,0.12)] text-center" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)), rgba(0, 0, 0, 0.68)' }}>
-          <h1 className="tutorial-hero-title text-white text-[clamp(2.25rem,6vw,4rem)] font-black leading-[1.05] tracking-[-0.05em] mb-6 shadow-[0_3px_18px_rgba(0,0,0,0.65)]">
+          <h1 className="tutorial-hero-title text-white text-[clamp(2.25rem,6vw,4rem)] font-black leading-[1.05] tracking-[-0.05em] mb-6">
             Find the best Tutorials
           </h1>
           <p className="tutorial-hero-subtitle text-[#aeb0bc] text-[clamp(1.05rem,2.5vw,1.55rem)] italic font-semibold leading-[1.7] m-0 max-w-[760px]">
@@ -145,9 +145,12 @@ export default function TutorialsLegacyContent() {
               <button
                 type="button"
                 onClick={() => setActiveTab(card.id)}
-                className={`tutorial-tab mt-auto relative grid grid-cols-[20px_1fr_30px] items-center gap-2.5 h-[52px] min-h-[52px] px-3 border-2 rounded-none transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.78)] hover:saturate-[1.08] hover:brightness-[1.08] bg-[radial-gradient(circle_at_28%_18%,rgba(0,212,255,0.22)_0%,transparent_38%),radial-gradient(circle_at_78%_96%,rgba(0,212,255,0.08)_0%,transparent_36%),linear-gradient(180deg,rgba(18,23,37,0.96)_0%,rgba(8,10,22,0.98)_100%)] ${card.tabClass}`}
+                className={`tutorial-tab group mt-auto relative grid grid-cols-[20px_1fr_30px] items-center gap-2.5 h-[52px] min-h-[52px] px-3 border-2 rounded-none transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.78)] hover:saturate-[1.08] hover:brightness-[1.08] bg-[radial-gradient(circle_at_28%_18%,rgba(0,212,255,0.22)_0%,transparent_38%),radial-gradient(circle_at_78%_96%,rgba(0,212,255,0.08)_0%,transparent_36%),linear-gradient(180deg,rgba(18,23,37,0.96)_0%,rgba(8,10,22,0.98)_100%)] ${card.tabClass}`}
                 aria-selected={activeTab === card.id}
                 aria-expanded={activeTab === card.id}
+                style={{
+                  '--hover-bg': card.id === 'graphic' ? '#00d4ff' : card.id === 'editing' ? '#ff1f8f' : '#ffd600'
+                }}
               >
                 <span className={`tutorial-tab-icon relative z-[1] w-5 h-5 flex-shrink-0 ${card.iconClass}`} style={{ filter: card.iconFilter }}>
                   {card.icon}
@@ -155,7 +158,7 @@ export default function TutorialsLegacyContent() {
                 <span className="tutorial-tab-label relative z-[1] text-white font-extrabold text-[0.95rem] tracking-tight" style={{ textShadow: '0 2px 0 rgba(0,0,0,0.28), 0 8px 18px rgba(0,0,0,0.7)' }}>
                   {card.tabLabel}
                 </span>
-                <span className={`tutorial-tab-arrow relative z-[1] inline-flex items-center justify-center w-[28px] h-[28px] border-2 rounded-full transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${card.arrowClass}`}>
+                <span className={`tutorial-tab-arrow relative z-[1] inline-flex items-center justify-center w-[28px] h-[28px] border-2 rounded-full transition-all duration-[200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[var(--hover-bg)] group-hover:text-black group-hover:border-[var(--hover-bg)] ${card.arrowClass}`}>
                   →
                 </span>
               </button>
