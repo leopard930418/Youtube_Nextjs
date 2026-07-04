@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
-    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function Header() {
             <nav
                 className={`
                     inline-flex flex-row items-center justify-center
-                    px-3 py-1.5 mx-auto gap-3.5
+                    px-2 py-0.5 sm:px-3 sm:py-1.5 mx-auto gap-1.5 sm:gap-3.5
                     max-w-[calc(100vw-28px)] w-max
                     rounded-[999px]
                     border-2 border-[rgba(117,91,178,0.5)]
@@ -39,24 +38,24 @@ export default function Header() {
                 <img
                     src="/logo-header.webp"
                     alt="Header Logo"
-                    className="flex-shrink-0 w-[42px] h-[42px] mr-1 rounded-[12px] object-cover object-center"
+                    className="flex-shrink-0 w-[32px] h-[32px] sm:w-[42px] sm:h-[42px] mr-0.5 sm:mr-1 rounded-[8px] sm:rounded-[12px] object-cover object-center"
                     width={42}
                     height={42}
                 />
 
                 {/* LINKS */}
-                <ul className="flex flex-row items-center gap-2.5 m-0 p-0 list-none">
+                <ul className="flex flex-row items-center gap-1.5 sm:gap-2.5 m-0 p-0 list-none">
                     {navLinks.map((link) => (
                         <li key={link.href} className="m-0 p-0">
                             <Link
                                 href={link.href}
                                 className="
                                     inline-flex items-center justify-center
-                                    w-[112px] h-[44px] px-4
+                                    w-[75px] h-[34px] sm:w-[112px] sm:h-[44px] px-2 sm:px-4
                                     rounded-[999px]
                                     bg-[rgba(43,39,57,0.92)]
                                     text-[#e6e2ee]
-                                    text-[0.92rem] font-medium
+                                    text-[0.7rem] sm:text-[0.92rem] font-medium
                                     whitespace-nowrap
 
                                     cursor-pointer
@@ -76,61 +75,6 @@ export default function Header() {
                     ))}
                 </ul>
             </nav>
-
-            {/* MOBILE OVERLAY */}
-            <div
-                id="nav-overlay"
-                className={`
-                    fixed inset-0 z-[1000]
-                    flex-col items-center justify-center
-                    bg-[radial-gradient(circle_at_50%_18%,rgba(79,140,255,0.2),transparent_28rem),rgba(0,0,0,0.94)]
-                    backdrop-blur-[15px]
-                    transition-opacity duration-[300ms]
-                    ease-in-out
-                    ${isOverlayOpen ? 'flex opacity-100' : 'hidden opacity-0'}
-                `}
-            >
-                {/* CLOSE BUTTON */}
-                <button
-                    onClick={() => setIsOverlayOpen(false)}
-                    className="
-                        absolute top-6 right-6
-                        text-[2.5rem]
-                        text-white
-                        cursor-pointer
-                        transition-all duration-[300ms]
-                        hover:text-[#D6B600]
-                    "
-                >
-                    ×
-                </button>
-
-                {/* MOBILE LINKS */}
-                <ul className="flex flex-col gap-6 text-[1.4rem] items-center justify-center">
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <Link
-                                href={link.href}
-                                onClick={() => setIsOverlayOpen(false)}
-                                className="
-                                    text-white font-medium
-                                    cursor-pointer
-                                    px-4 py-2
-                                    rounded-[999px]
-                                    transition-all duration-[220ms]
-                                    ease-[cubic-bezier(0.22,1,0.36,1)]
-
-                                    hover:bg-[#D6B600]
-                                    hover:text-[#0b0b0b]
-                                    hover:scale-[1.05]
-                                "
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
         </header>
     );
 }

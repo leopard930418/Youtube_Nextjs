@@ -111,16 +111,16 @@ function ThumbnailImage({ num, index, onHover }) {
 
 function HeroOverlay() {
   return (
-    <div className="absolute left-1/2 top-1/2 z-3 w-[min(88vw,690px)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-black/60 px-8 py-10 text-center backdrop-blur-md md:px-10">
-      <p className="w-full text-center font-extrabold leading-[1.06] tracking-[-0.04em] text-[clamp(2.6rem,6vw,4.2rem)] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)] [text-shadow:0_0_60px_rgba(0,0,0,0.7)] mb-5">
+    <div className="absolute left-1/2 top-1/2 z-3 w-[min(88vw,690px)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-black/60 px-6 py-8 sm:px-8 sm:py-10 text-center backdrop-blur-md">
+      <p className="w-full text-center font-extrabold leading-[1.06] tracking-[-0.04em] text-[clamp(2rem,5vw,4.2rem)] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)] [text-shadow:0_0_60px_rgba(0,0,0,0.7)] mb-4 sm:mb-5">
         We help overcome challenges
       </p>
-      <p className="mt-3 px-3 text-2xl italic text-gray-300 md:text-2xl">
+      <p className="mt-2 sm:mt-3 px-2 sm:px-3 text-lg sm:text-2xl italic text-gray-300">
         Join the all-in-one ecosystem that helps guide creators for free
       </p>
       <Link
         href="/resources"
-        className="relative inline-flex items-center justify-center px-10 py-4 rounded-full bg-[#FF2B9D] text-white font-semibold hover:bg-[#FF3AA8] transition-colors mt-8 after:content-[''] after:absolute after:inset-[-3px] after:rounded-[999px] after:shadow-[0_0_28px_rgba(255,31,143,0.55)] after:pointer-events-none"
+        className="relative inline-flex items-center justify-center px-8 py-3 sm:px-10 sm:py-4 rounded-full bg-[#FF2B9D] text-white font-semibold hover:bg-[#FF3AA8] transition-colors mt-6 sm:mt-8 after:content-[''] after:absolute after:inset-[-3px] after:rounded-[999px] after:shadow-[0_0_28px_rgba(255,31,143,0.55)] after:pointer-events-none text-base sm:text-lg"
       >
         Get started
       </Link>

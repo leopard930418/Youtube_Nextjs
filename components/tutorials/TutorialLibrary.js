@@ -57,12 +57,12 @@ export default function TutorialLibrary({
     const currentTutorials = filteredTutorials.slice(startIndex, endIndex);
 
     const selectClass =  `
-                            w-full h-[52px]
-                            px-[16px]
-                            rounded-[14px]
+                            w-full h-[44px] sm:h-[52px]
+                            px-[12px] sm:px-[16px]
+                            rounded-[12px] sm:rounded-[14px]
                             bg-[rgba(10,12,22,0.92)]
                             border border-white/10
-                            text-white text-[0.95rem] font-semibold
+                            text-white text-[0.85rem] sm:text-[0.95rem] font-semibold
                             shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_10px_25px_rgba(0,0,0,0.35)]
                             transition-all duration-200 ease-out
                             hover:border-white/20
@@ -74,28 +74,28 @@ export default function TutorialLibrary({
     return (
         <>
             <section
-                className="editing-library w-[min(calc(100%-32px),1480px)] mx-[-32px_auto_110px] px-[28px] pt-[58px] px-[28px] pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
+                className="editing-library w-[min(calc(100%-32px),1480px)] mx-[-16px_auto_110px] sm:mx-[-32px_auto_110px] px-[16px] sm:px-[28px] pt-[40px] sm:pt-[58px] pb-[20px] sm:pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[20px] sm:rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
                 style={{
                     background: 'radial-gradient(circle at 18% 0%, rgba(255, 31, 143, 0.12), transparent 34%), radial-gradient(circle at 88% 8%, rgba(0, 212, 255, 0.08), transparent 34%), linear-gradient(180deg, rgba(14, 17, 29, 0.98) 0%, rgba(8, 10, 20, 0.98) 100%)'
                 }}
                 id={id}
                 aria-label={ariaLabel}
             >
-            <div className="editing-library-header flex flex-col items-center mb-6 text-center">
+            <div className="editing-library-header flex flex-col items-center mb-4 sm:mb-6 text-center">
                 <div>
-                    <div className="editing-library-kicker text-[#ff1f8f] text-[0.78rem] font-extrabold tracking-[0.16em] text-center uppercase">
+                    <div className="editing-library-kicker text-[#ff1f8f] text-[0.7rem] sm:text-[0.78rem] font-extrabold tracking-[0.12em] sm:tracking-[0.16em] text-center uppercase">
                         {kicker}
                     </div>
-                    <h2 className="editing-library-title m-0 text-white text-[32px] font-extrabold tracking-[-0.05em] text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
+                    <h2 className="editing-library-title mt-3 sm:mt-5 m-0 text-white text-[clamp(1.75rem,4vw,2.5rem)] sm:text-[32px] font-extrabold tracking-[-0.04em] sm:tracking-[-0.05em] text-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
                         {title}
                     </h2>
-                    <p className="editing-library-subtitle max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.92rem,1.8vw,1.05rem)] leading-[1.65] text-center">
+                    <p className="editing-library-subtitle mt-3 sm:mt-5 max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.85rem,1.5vw,1.05rem)] leading-[1.6] sm:leading-[1.65] text-center">
                         {subtitle}
                     </p>
                 </div>
             </div>
 
-            <div className="grid grid-cols-[repeat(3,minmax(180px,1fr))] gap-[14px] mb-[26px] p-[18px] border border-white/10 rounded-[22px] bg-[radial-gradient(circle_at_18%_0%,rgba(255,47,157,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.028))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_48px_rgba(0,0,0,0.32)]">
+            <div className="grid grid-cols-1 sm:grid-cols-[repeat(3,minmax(180px,1fr))] gap-[12px] sm:gap-[14px] mb-[20px] sm:mb-[26px] p-[14px] sm:p-[18px] border border-white/10 rounded-[18px] sm:rounded-[22px] bg-[radial-gradient(circle_at_18%_0%,rgba(255,47,157,0.14),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.028))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_48px_rgba(0,0,0,0.32)]">
 
                 {/* SOFTWARE */}
                 <div>
@@ -152,7 +152,7 @@ export default function TutorialLibrary({
                 </div>
             </div>
             <p
-                className="editing-results-status text-[#d7dbea] text-[0.92rem] font-extrabold text-center mt-4 mb-5"
+                className="editing-results-status text-[#d7dbea] text-[0.85rem] sm:text-[0.92rem] font-extrabold text-center mt-3 sm:mt-4 mb-4 sm:mb-5"
                 id="graphic-results-status"
                 aria-live="polite"
             >
@@ -160,7 +160,7 @@ export default function TutorialLibrary({
             </p>
 
             {/* TUTORIAL CARDS GRID */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[14px] sm:gap-[18px]">
                 {currentTutorials.map((tutorial, index) => (
                     <TutorialCard
                         key={`${tutorial.videoId || tutorial.link}-${index}`}
@@ -179,20 +179,20 @@ export default function TutorialLibrary({
 
             {/* PAGINATION CONTROLS */}
             {totalPages > 1 && (
-                <div className="flex items-center justify-center gap-3 mt-8">
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
                     <button
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
-                        className="min-w-[42px] h-[42px] px-[13px] border border-white/10 rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
+                        className="min-w-[38px] h-[38px] sm:min-w-[42px] sm:h-[42px] px-[10px] sm:px-[13px] border border-white/10 rounded-[8px] sm:rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.85rem] sm:text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
                     >
                         Previous
                     </button>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className={`min-w-[42px] h-[42px] px-[13px] rounded-[10px] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 ${currentPage === page
+                                className={`min-w-[38px] h-[38px] sm:min-w-[42px] sm:h-[42px] px-[10px] sm:px-[13px] rounded-[8px] sm:rounded-[10px] inline-flex items-center justify-center text-[0.85rem] sm:text-[0.95rem] font-black leading-none transition-all duration-200 ${currentPage === page
                                     ? 'text-white'
                                     : 'text-[#d7dbea] border border-white/10 bg-[rgba(8,12,24,0.8)] hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]'
                                     }`}
@@ -209,7 +209,7 @@ export default function TutorialLibrary({
                     <button
                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={currentPage === totalPages}
-                        className="min-w-[42px] h-[42px] px-[13px] border border-white/10 rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
+                        className="min-w-[38px] h-[38px] sm:min-w-[42px] sm:h-[42px] px-[10px] sm:px-[13px] border border-white/10 rounded-[8px] sm:rounded-[10px] bg-[rgba(8,12,24,0.8)] text-[#d7dbea] inline-flex items-center justify-center text-[0.85rem] sm:text-[0.95rem] font-black leading-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5 hover:border-[rgba(255,31,143,0.45)] hover:bg-[rgba(255,31,143,0.12)]"
                     >
                         Next
                     </button>
