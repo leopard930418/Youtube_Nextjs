@@ -12,6 +12,8 @@ const THUMB_INDICES = [
 export default function HomeHero() {
   const [isHovered, setIsHovered] = useState(false);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     const key = "yggHomeThumbIntroSeen";
     const grid = document.querySelector(".thumbnails-multiline");
@@ -25,10 +27,11 @@ export default function HomeHero() {
       }
       grid.classList.toggle("thumbs-intro", shouldAnimate);
     }
+    setIsLoaded(true);
   }, []);
 
   return (
-    <section className="fffv relative min-h-145 overflow-hidden bg-surface md:min-h-165">
+    <section className={`relative min-h-145 overflow-hidden bg-surface md:min-h-165 transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
       <GradientOrb className="-left-44 -top-28" color="accent" size={520} />
       <GradientOrb className="-bottom-20 -right-24" color="cyan" size={400} />
 

@@ -1,6 +1,15 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 
 export default function TeamMemberCard({ member, showQuote = true }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <article
       className="
@@ -32,7 +41,7 @@ export default function TeamMemberCard({ member, showQuote = true }) {
         "
       />
 
-      <h2 className="text-2xl font-bold text-white">
+      <h2 className={`text-2xl font-bold text-white transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
         {member.name}
       </h2>
 

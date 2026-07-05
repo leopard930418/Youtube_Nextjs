@@ -1,13 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import { ADVICE_TOPICS } from "@/lib/advice-data";
 
-function SearchInput({ value, onChange, resultCount, hasQuery }) {
+function SearchInput({ value, onChange, resultCount, hasQuery, isLoaded }) {
   return (
     <div className="px-6 pb-6 text-center">
-      <h1 className="pb-4 text-3xl md:text-[2.75rem]  font-extrabold tracking-[-0.035em]">Youtube Advice</h1>
+      <h1 className={`pb-4 text-3xl md:text-[2.75rem] font-extrabold tracking-[-0.035em] transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0'}`}>Youtube Advice</h1>
       <div className="search-wrap flex justify-center px-0 px-[clamp(0,2vw,20px)] mb-4">
         <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
           <input
@@ -158,6 +158,11 @@ function TopicModal({ topic, onClose }) {
 export default function AdviceGrid() {
   const [query, setQuery] = useState("");
   const [activeTopic, setActiveTopic] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -177,12 +182,13 @@ export default function AdviceGrid() {
         onChange={setQuery}
         resultCount={filtered.length}
         hasQuery={query.trim().length > 0}
+        isLoaded={isLoaded}
       />
 
       {filtered.length === 0 ? (
         <EmptyState query={query} />
       ) : (
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-6 pb-16 sm:px-28 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={`mx-auto grid max-w-6xl grid-cols-1 gap-5 px-6 pb-16 sm:px-28 sm:grid-cols-2 lg:grid-cols-3 transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
           {filtered.map((topic) => (
             <TopicCard
               key={topic.id}

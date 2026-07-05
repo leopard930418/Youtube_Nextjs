@@ -10,7 +10,7 @@ export default function AboutSection() {
 
   return (
     <>
-      <div className="flex justify-center px-4 py-10 sm:py-15">
+      <div className="flex justify-center px-4 py-10 sm:py-22">
         <Image
           src="/logo.svg"
           alt="YouTube Growth Guide Logo"

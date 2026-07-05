@@ -86,7 +86,7 @@ export default function TutorialLibrary({
                     <div className="editing-library-kicker text-[#ff1f8f] text-[0.7rem] sm:text-[0.78rem] font-extrabold tracking-[0.12em] sm:tracking-[0.16em] text-center uppercase">
                         {kicker}
                     </div>
-                    <h2 className="editing-library-title mt-3 sm:mt-5 m-0 text-white text-[clamp(1.75rem,4vw,2.5rem)] sm:text-[32px] font-extrabold tracking-[-0.04em] sm:tracking-[-0.05em] text-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
+                    <h2 className="editing-library-title mt-3 sm:mt-3 m-0 text-white text-[clamp(1.75rem,4vw,2.5rem)] sm:text-[32px] font-extrabold tracking-[-0.04em] sm:tracking-[-0.05em] text-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
                         {title}
                     </h2>
                     <p className="editing-library-subtitle mt-3 sm:mt-5 max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.85rem,1.5vw,1.05rem)] leading-[1.6] sm:leading-[1.65] text-center">
