@@ -49,8 +49,8 @@ export default function TutorialsLegacyContent() {
         subtitle: 'Learn Canva, Photopea, and Photoshop on PC and mobile with hand-picked tutorials for every skill level.',
         softwareOptions: [
           { value: 'canva', label: 'Canva' },
-          { value: 'photopea', label: 'Photopea' },
-          { value: 'photoshop', label: 'Photoshop' },
+          { value: 'Photopea', label: 'Photopea' },
+          { value: 'Photoshop', label: 'Photoshop' },
         ],
         id: 'graphic-design-library',
         ariaLabel: 'Graphic design tutorials',

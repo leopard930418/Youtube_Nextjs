@@ -89,10 +89,10 @@ export default function TutorialCard({
                 </div>
 
                 {/* TAGS */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                    <p className="text-white/60 text-[0.85rem] font-semibold">Tags:</p>
+                <div className="flex gap-1.5 sm:gap-2 mb-4">
+                    <p className="text-white/60 text-[0.7rem] sm:text-[0.85rem] font-semibold">Tags:</p>
                     {software && (
-                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[26px] px-[9px] py-[5px] border border-[rgba(155,123,255,0.42)] rounded-[8px] text-[#9b7bff] text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(155,123,255,0.2)]"
+                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[22px] sm:min-h-[26px] px-[6px] sm:px-[9px] py-[3px] sm:py-[5px] border border-[rgba(155,123,255,0.42)] rounded-[6px] sm:rounded-[8px] text-[#9b7bff] text-[0.65rem] sm:text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(155,123,255,0.2)]"
                             style={{
                                 background: 'radial-gradient(circle at 24% 16%, rgba(155, 123, 255, 0.16), transparent 46%), linear-gradient(180deg, rgba(18, 23, 37, 0.96) 0%, rgba(8, 10, 22, 0.98) 100%)'
                             }}
@@ -101,7 +101,7 @@ export default function TutorialCard({
                         </span>
                     )}
                     {device && (
-                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[26px] px-[9px] py-[5px] border rounded-[8px] text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(70,255,143,0.24)]"
+                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[22px] sm:min-h-[26px] px-[6px] sm:px-[9px] py-[3px] sm:py-[5px] border rounded-[6px] sm:rounded-[8px] text-[0.65rem] sm:text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(70,255,143,0.24)]"
                             style={{
                                 color: device === 'Mobile' ? '#46ff8f' : '#ffd166',
                                 borderColor: device === 'Mobile' ? 'rgba(70, 255, 143, 0.45)' : 'rgba(255, 209, 102, 0.45)',
@@ -117,7 +117,7 @@ export default function TutorialCard({
                         </span>
                     )}
                     {level && (
-                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[26px] px-[9px] py-[5px] border rounded-[8px] text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(163,230,53,0.2)]"
+                        <span className="inline-flex flex-shrink-0 items-center justify-center min-h-[22px] sm:min-h-[26px] px-[6px] sm:px-[9px] py-[3px] sm:py-[5px] border rounded-[6px] sm:rounded-[8px] text-[0.65rem] sm:text-[0.72rem] font-[900] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_14px_rgba(163,230,53,0.2)]"
                             style={{
                                 color: (() => {
                                     const levelLower = level.toLowerCase();
