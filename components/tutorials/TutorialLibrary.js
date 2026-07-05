@@ -74,7 +74,7 @@ export default function TutorialLibrary({
     return (
         <>
             <section
-                className="editing-library w-[min(calc(100%-32px),1480px)] mx-[-16px_auto_110px] sm:mx-[-32px_auto_110px] px-[16px] sm:px-[28px] pt-[40px] sm:pt-[58px] pb-[20px] sm:pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[20px] sm:rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
+                className="editing-library w-[min(calc(100%-32px),1480px)] mx-auto sm:mx-[-32px_auto_110px] px-[16px] sm:px-[28px] pt-[40px] sm:pt-[58px] pb-[20px] sm:pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[20px] sm:rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
                 style={{
                     background: 'radial-gradient(circle at 18% 0%, rgba(255, 31, 143, 0.12), transparent 34%), radial-gradient(circle at 88% 8%, rgba(0, 212, 255, 0.08), transparent 34%), linear-gradient(180deg, rgba(14, 17, 29, 0.98) 0%, rgba(8, 10, 20, 0.98) 100%)'
                 }}

@@ -10,7 +10,7 @@ export const metadata = createMetadata({
 
 export default function TutorialsPage() {
   return (
-    <PageLayout className="tutorials-page">
+    <PageLayout className="tutorials-page" showFooter={false}>
       <TutorialsLegacyContent />
     </PageLayout>
   );
