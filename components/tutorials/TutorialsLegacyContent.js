@@ -136,7 +136,7 @@ export default function TutorialsLegacyContent() {
 
 
       {/* TUTORIALS CARDS */}
-      <section className="tutorial-showcase w-[min(calc(100%-35px),1120px)] md:w-[min(calc(100%-80px),1120px)] mx-auto mb-[70px] px-[26px] md:px-[38px] py-[38px] pb-[26px] border border-[rgba(255,255,255,0.08)] rounded-[24px] bg-gradient-to-b from-[rgba(21,21,31,0.92)] to-[rgba(11,12,24,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)] overflow-hidden transition-all duration-[350ms] ease-in-out origin-top md:max-h-[520px] opacity-100" aria-label="Tutorial overview">
+      <section className="tutorial-showcase w-[min(calc(100%-35px),1120px)] md:w-[min(calc(100%-80px),1120px)] mx-auto mb-[70px] px-[26px] md:px-[38px] py-[38px] pb-[26px] border border-[rgba(255,255,255,0.08)] rounded-[24px] bg-gradient-to-b from-[rgba(21,21,31,0.92)] to-[rgba(11,12,24,0.98)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)] overflow-hidden transition-all duration-[350ms] ease-in-out origin-top max-h-auto opacity-100" aria-label="Tutorial overview">
         <div className="tutorial-showcase-header flex flex-col items-center text-center mb-[22px]">
           <p className="tutorial-showcase-text block w-[min(100%,760px)] mx-auto text-[#d7d8e0] text-[1.08rem] font-medium leading-[1.75] text-center">
             Explore hand-picked tutorials across graphic design, motion design, and video editing to improve your skills, create better content, and build a more efficient workflow.

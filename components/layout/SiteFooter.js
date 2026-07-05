@@ -23,7 +23,7 @@ function SocialButton({ href, label, icon, bgColor }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex max-w-[160px] items-center justify-center gap-2 rounded-4xl px-4 py-3 text-sm font-medium text-white transition-all hover:scale-105 ${bgColor}`}
+      className={`flex min-w-[140px] max-w-[170px] items-center justify-center gap-2 rounded-4xl px-4 py-3 text-sm font-medium text-white transition-all hover:scale-105 ${bgColor}`}
       style={{
         transition: 'background 0.3s ease, transform 0.3s ease'
       }}
@@ -64,7 +64,7 @@ export default function SiteFooter() {
           social media accounts and connect with our community!
         </p>
 
-        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-3 w-full max-w-md sm:max-w-lg">
+        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-3 w-full max-w-md sm:max-w-lg justify-items-center sm:justify-center">
           {SOCIAL_LINKS.map((social) => (
             <SocialButton key={social.href} {...social} />
           ))}
