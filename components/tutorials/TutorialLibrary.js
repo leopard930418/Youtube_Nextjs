@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TutorialCard from './TutorialCard';
 import TutorialCardModal from './TutorialCardModal';
 
@@ -19,7 +19,12 @@ export default function TutorialLibrary({
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedVideoUrl, setSelectedVideoUrl] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
     const itemsPerPage = 9;
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, []);
 
     // Reset to page 1 when filters change
     const handleFilterChange = (setter) => (value) => {
@@ -74,7 +79,7 @@ export default function TutorialLibrary({
     return (
         <>
             <section
-                className="editing-library w-[min(calc(100%-32px),1480px)] mx-auto sm:mx-[-32px_auto_110px] px-[16px] sm:px-[28px] pt-[40px] sm:pt-[58px] pb-[20px] sm:pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[20px] sm:rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)]"
+                className={`editing-library w-[min(calc(100%-32px),1480px)] mx-auto sm:mx-[-32px_auto_110px] px-[16px] sm:px-[28px] pt-[40px] sm:pt-[58px] pb-[20px] sm:pb-[30px] scroll-mt-[132px] border border-[rgba(255,255,255,0.08)] rounded-[20px] sm:rounded-[26px] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_22px_70px_rgba(0,0,0,0.42)] transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                 style={{
                     background: 'radial-gradient(circle at 18% 0%, rgba(255, 31, 143, 0.12), transparent 34%), radial-gradient(circle at 88% 8%, rgba(0, 212, 255, 0.08), transparent 34%), linear-gradient(180deg, rgba(14, 17, 29, 0.98) 0%, rgba(8, 10, 20, 0.98) 100%)'
                 }}
@@ -86,7 +91,7 @@ export default function TutorialLibrary({
                     <div className="editing-library-kicker text-[#ff1f8f] text-[0.7rem] sm:text-[0.78rem] font-extrabold tracking-[0.12em] sm:tracking-[0.16em] text-center uppercase">
                         {kicker}
                     </div>
-                    <h2 className="editing-library-title mt-3 sm:mt-3 m-0 text-white text-[clamp(1.75rem,4vw,2.5rem)] sm:text-[32px] font-extrabold tracking-[-0.04em] sm:tracking-[-0.05em] text-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-shadow-[0_12px_34px_rgba(0,0,0,0.7)]">
+                    <h2 className={`editing-library-title mt-3 sm:mt-3 m-0 text-white text-[clamp(1.75rem,4vw,2.5rem)] sm:text-[32px] font-extrabold tracking-[-0.04em] sm:tracking-[-0.05em] text-shadow-[0_8px_24px_rgba(0,0,0,0.7)] sm:text-shadow-[0_12px_34px_rgba(0,0,0,0.7)] transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
                         {title}
                     </h2>
                     <p className="editing-library-subtitle mt-3 sm:mt-5 max-w-[680px] mx-[12px_auto_0] text-[#b9bfcc] text-[clamp(0.85rem,1.5vw,1.05rem)] leading-[1.6] sm:leading-[1.65] text-center">

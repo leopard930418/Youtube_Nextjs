@@ -12,12 +12,14 @@ export default function ResourcesContent() {
   }, []);
 
   return (
-    <div className={`transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-      <HeroBanner
-        title="Get The Best Resources"
-        subtitle="Access the highest-quality YouTube advice for free to help you reach your goals."
-      />
+    <>
+      <div className={`transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+        <HeroBanner
+          title="Get The Best Resources"
+          subtitle="Access the highest-quality YouTube advice for free to help you reach your goals."
+        />
+      </div>
       <ResourceCards items={RESOURCE_CARDS} />
-    </div>
+    </>
   );
 }
