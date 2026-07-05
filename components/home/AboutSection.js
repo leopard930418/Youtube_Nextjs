@@ -50,11 +50,24 @@ export default function AboutSection() {
             </p>
 
             {/* GRID */}
-            <div className="mt-4 p-10 sm:mt-6 grid gap-2 sm:gap-3 sm:grid-cols-2">
+            <div className="mt-4 sm:mt-6 grid gap-2 sm:gap-3 sm:grid-cols-2">
               {HOME_PERKS.map((perk) => (
                 <div
                   key={perk.label}
-                  className="flex items-center gap-2 sm:gap-3 rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2 sm:py-3 text-left transition-all duration-200 hover:bg-white/10 hover:border-[#ff2d95]/30 hover:shadow-[0_0_20px_rgba(255,45,149,0.15)] shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+                  className="flex items-center gap-2 sm:gap-3 rounded-xl border border-white/10 bg-white/5 px-3 sm:px-4 py-2 sm:py-3 text-left transition-all duration-300 shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+                  style={{
+                    transition: 'border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.22)';
+                    e.currentTarget.style.boxShadow = '0 26px 78px rgba(0, 0, 0, 0.42), 0 0 54px rgba(79, 140, 255, 0.16)';
+                    e.currentTarget.style.transform = 'translateY(-8px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '';
+                    e.currentTarget.style.boxShadow = '';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
                 >
                   <span className="text-lg sm:text-xl">{perk.emoji}</span>
                   <span className="text-xs sm:text-sm font-medium text-white/90">
