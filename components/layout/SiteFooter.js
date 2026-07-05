@@ -64,7 +64,7 @@ export default function SiteFooter() {
           social media accounts and connect with our community!
         </p>
 
-        <div className="grid grid-cols-2 gap-3 w-full max-w-md sm:max-w-lg">
+        <div className="grid grid-cols-2 sm:flex sm:flex-row gap-3 w-full max-w-md sm:max-w-lg">
           {SOCIAL_LINKS.map((social) => (
             <SocialButton key={social.href} {...social} />
           ))}

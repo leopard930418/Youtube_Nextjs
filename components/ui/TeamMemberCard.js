@@ -5,7 +5,7 @@ export default function TeamMemberCard({ member, showQuote = true }) {
     <article
       className="
         group
-        flex flex-col items-center text-center w-full md:w-1/3
+        flex flex-col items-center text-center w-full md:w-4/7
         rounded-2xl py-6 px-4
         bg-[#10121CC7]
         border-[4px] 

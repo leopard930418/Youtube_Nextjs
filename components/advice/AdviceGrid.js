@@ -7,7 +7,7 @@ import { ADVICE_TOPICS } from "@/lib/advice-data";
 function SearchInput({ value, onChange, resultCount, hasQuery }) {
   return (
     <div className="px-6 pb-6 text-center">
-      <h1 className="pb-4 text-3xl text-[2.75rem] font-extrabold tracking-[-0.035em]">Youtube Advice</h1>
+      <h1 className="pb-4 text-3xl md:text-[2.75rem]  font-extrabold tracking-[-0.035em]">Youtube Advice</h1>
       <div className="search-wrap flex justify-center px-0 px-[clamp(0,2vw,20px)] mb-4">
         <div className="search-shell w-full max-w-[560px] flex flex-col gap-3">
           <input
@@ -182,7 +182,7 @@ export default function AdviceGrid() {
       {filtered.length === 0 ? (
         <EmptyState query={query} />
       ) : (
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-28 pb-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 px-6 pb-16 sm:px-28 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((topic) => (
             <TopicCard
               key={topic.id}
