@@ -129,7 +129,7 @@ export default function TutorialsLegacyContent() {
       {/* HERO SECTION */}
       <section className="tutorial-hero relative w-[min(calc(100%-32px),1120px)] min-h-[330px] mx-auto my-3 mb-11 px-6 py-10 rounded-none overflow-hidden flex items-center justify-center shadow-[0_20px_70px_rgba(0,0,0,0.35)] bg-[linear-gradient(90deg,rgba(10,10,20,0.35),rgba(255,31,143,0.2),rgba(0,212,255,0.12)),url('/background.webp')] bg-center bg-cover bg-no-repeat">
         <div className="tutorial-hero-overlay w-[min(880px,92%)] p-[clamp(34px,5vw,56px)_clamp(24px,6vw,72px)] rounded-[26px] border-[rgba(255,255,255,0.12)] shadow-[0_22px_70px_rgba(0,0,0,0.44),0_0_70px_rgba(79,140,255,0.12)] text-center" style={{ background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045)), rgba(0, 0, 0, 0.68)' }}>
-          <h1 className={`tutorial-hero-title text-white text-[clamp(2.25rem,6vw,4rem)] font-black leading-[1.05] tracking-[-0.05em] mb-6 transition-all duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0'}`}>
+          <h1 className={`tutorial-hero-title text-white text-[clamp(2.25rem,6vw,4rem)] font-black leading-[1.05] tracking-[-0.05em] mb-6 transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0'}`}>
             Find the best Tutorials
           </h1>
           <p className="tutorial-hero-subtitle text-[#aeb0bc] text-[clamp(1.05rem,2.5vw,1.55rem)] italic font-semibold leading-[1.7] m-0 max-w-[760px]">

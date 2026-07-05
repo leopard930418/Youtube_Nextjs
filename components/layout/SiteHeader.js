@@ -2,19 +2,31 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
     const [isLoaded, setIsLoaded] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         setIsLoaded(true);
     }, []);
 
     const navLinks = [
-        { href: '/', label: 'Home' },
-        { href: '/team', label: 'Our Team' },
-        { href: '/resources', label: 'Resources' },
+        { href: '/', label: 'Home', isHome: true },
+        { href: '/team', label: 'Our Team', forceReload: true },
+        { href: '/resources', label: 'Resources', forceReload: true },
     ];
+
+    const handleHomeClick = (e) => {
+        e.preventDefault();
+        window.location.href = '/';
+    };
+
+    const handleForceReload = (e, href) => {
+        e.preventDefault();
+        window.location.href = href;
+    };
 
     return (
         <header className="flex justify-center sticky top-0 z-[1000] px-5 py-3 bg-gradient-to-b from-[rgba(7,7,17,0.98)] via-[rgba(7,7,17,0.82)] to-transparent cursor-pointer">
@@ -49,6 +61,7 @@ export default function Header() {
                         <li key={link.href} className="m-0 p-0">
                             <Link
                                 href={link.href}
+                                onClick={link.isHome ? handleHomeClick : link.forceReload ? (e) => handleForceReload(e, link.href) : undefined}
                                 className="
                                     inline-flex items-center justify-center
                                     w-[75px] h-[34px] sm:w-[112px] sm:h-[44px] px-2 sm:px-4
