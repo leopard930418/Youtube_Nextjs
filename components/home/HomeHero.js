@@ -31,7 +31,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className={`relative min-h-145 overflow-hidden bg-surface md:min-h-165 transition-all duration-[700ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+    <section className={`relative min-h-145 overflow-hidden bg-surface md:min-h-165 transition-all duration-[500ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
       <GradientOrb className="-left-44 -top-28" color="accent" size={520} />
       <GradientOrb className="-bottom-20 -right-24" color="cyan" size={400} />
 
