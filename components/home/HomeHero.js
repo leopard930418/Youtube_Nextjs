@@ -28,7 +28,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className="relative min-h-145 overflow-hidden bg-surface md:min-h-165">
+    <section className="fffv relative min-h-145 overflow-hidden bg-surface md:min-h-165">
       <GradientOrb className="-left-44 -top-28" color="accent" size={520} />
       <GradientOrb className="-bottom-20 -right-24" color="cyan" size={400} />
 
