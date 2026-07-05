@@ -32,6 +32,55 @@ export default function TutorialLibrary({
         setCurrentPage(1);
     };
 
+    // Calculate dynamic options based on current filters
+    const getAvailableSoftware = () => {
+        const filtered = tutorials.filter((tutorial) => {
+            const matchesDevice = deviceFilter === 'all' || 
+                (deviceFilter === 'mobile' && tutorial.device === 'Mobile') ||
+                (deviceFilter === 'desktop' && tutorial.device === 'PC');
+            const matchesLevel = levelFilter === 'all' || 
+                (levelFilter === 'beginner' && tutorial.level.toLowerCase().includes('beginner')) ||
+                (levelFilter === 'intermediate' && tutorial.level.toLowerCase().includes('intermediate')) ||
+                (levelFilter === 'expert' && tutorial.level.toLowerCase().includes('advanced')) ||
+                (levelFilter === 'complete-video' && tutorial.level.toLowerCase().includes('complete')) ||
+                (levelFilter === 'playlist' && tutorial.level.toLowerCase().includes('playlist'));
+            return matchesDevice && matchesLevel;
+        });
+        const software = [...new Set(filtered.map(t => t.software))];
+        return software;
+    };
+
+    const getAvailableDevices = () => {
+        const filtered = tutorials.filter((tutorial) => {
+            const matchesSoftware = softwareFilter === 'all' || tutorial.software === softwareFilter;
+            const matchesLevel = levelFilter === 'all' || 
+                (levelFilter === 'beginner' && tutorial.level.toLowerCase().includes('beginner')) ||
+                (levelFilter === 'intermediate' && tutorial.level.toLowerCase().includes('intermediate')) ||
+                (levelFilter === 'expert' && tutorial.level.toLowerCase().includes('advanced')) ||
+                (levelFilter === 'complete-video' && tutorial.level.toLowerCase().includes('complete')) ||
+                (levelFilter === 'playlist' && tutorial.level.toLowerCase().includes('playlist'));
+            return matchesSoftware && matchesLevel;
+        });
+        const devices = [...new Set(filtered.map(t => t.device))];
+        return devices;
+    };
+
+    const getAvailableLevels = () => {
+        const filtered = tutorials.filter((tutorial) => {
+            const matchesSoftware = softwareFilter === 'all' || tutorial.software === softwareFilter;
+            const matchesDevice = deviceFilter === 'all' || 
+                (deviceFilter === 'mobile' && tutorial.device === 'Mobile') ||
+                (deviceFilter === 'desktop' && tutorial.device === 'PC');
+            return matchesSoftware && matchesDevice;
+        });
+        const levels = [...new Set(filtered.map(t => t.level))];
+        return levels;
+    };
+
+    const availableSoftware = getAvailableSoftware();
+    const availableDevices = getAvailableDevices();
+    const availableLevels = getAvailableLevels();
+
     const handleCardClick = (tutorial) => {
         setSelectedVideoUrl(tutorial.link);
         setIsModalOpen(true);
@@ -51,7 +100,9 @@ export default function TutorialLibrary({
         const matchesLevel = levelFilter === 'all' || 
             (levelFilter === 'beginner' && tutorial.level.toLowerCase().includes('beginner')) ||
             (levelFilter === 'intermediate' && tutorial.level.toLowerCase().includes('intermediate')) ||
-            (levelFilter === 'expert' && tutorial.level.toLowerCase().includes('advanced'));
+            (levelFilter === 'expert' && tutorial.level.toLowerCase().includes('advanced')) ||
+            (levelFilter === 'complete-video' && tutorial.level.toLowerCase().includes('complete')) ||
+            (levelFilter === 'playlist' && tutorial.level.toLowerCase().includes('playlist'));
         return matchesSoftware && matchesDevice && matchesLevel;
     });
 
@@ -113,7 +164,7 @@ export default function TutorialLibrary({
                         className={selectClass}
                     >
                         <option value="all">All Software</option>
-                        {softwareOptions?.map((option) => (
+                        {softwareOptions?.filter(option => availableSoftware.includes(option.value)).map((option) => (
                             <option key={option.value} value={option.value}>
                                 {option.label}
                             </option>
@@ -132,8 +183,12 @@ export default function TutorialLibrary({
                         className={selectClass}
                     >
                         <option value="all">All Devices</option>
-                        <option value="mobile">Mobile</option>
-                        <option value="desktop">PC</option>
+                        {availableDevices.includes('Mobile') && (
+                            <option value="mobile">Mobile</option>
+                        )}
+                        {availableDevices.includes('PC') && (
+                            <option value="desktop">PC</option>
+                        )}
                     </select>
                 </div>
 
@@ -148,11 +203,21 @@ export default function TutorialLibrary({
                         className={selectClass}
                     >
                         <option value="all">All Levels</option>
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="expert">Advanced</option>
-                        <option value="complete-video">Complete Video</option>
-                        <option value="playlist">Playlist</option>
+                        {availableLevels.some(l => l.toLowerCase().includes('beginner')) && (
+                            <option value="beginner">Beginner</option>
+                        )}
+                        {availableLevels.some(l => l.toLowerCase().includes('intermediate')) && (
+                            <option value="intermediate">Intermediate</option>
+                        )}
+                        {availableLevels.some(l => l.toLowerCase().includes('advanced')) && (
+                            <option value="expert">Advanced</option>
+                        )}
+                        {availableLevels.some(l => l.toLowerCase().includes('complete')) && (
+                            <option value="complete-video">Complete Video</option>
+                        )}
+                        {availableLevels.some(l => l.toLowerCase().includes('playlist')) && (
+                            <option value="playlist">Playlist</option>
+                        )}
                     </select>
                 </div>
             </div>
